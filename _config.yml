@@ -101,6 +101,6 @@ theme: landscape
 # 部署配置
 deploy:
   type: git
-  repo: git@Baobao0824/baobao0824.github.io.git  # 或者 https 地址
+  repo: git@github.com:Baobao0824/baobao0824.github.io.git
   branch: gh-pages        # 用户站点可写 master，项目站点必须 gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
