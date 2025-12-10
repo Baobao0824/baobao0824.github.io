@@ -8,12 +8,12 @@ subtitle: ''
 description: ''
 keywords:
 author: Baobao
-language: zh-cn
-timezone: 'utc+8'
+language: zh
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://blog.baobao0824.top/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: vivia
 
 # 部署配置
 deploy:
@@ -104,3 +104,7 @@ deploy:
   repo: git@github.com:Baobao0824/baobao0824.github.io.git
   branch: gh-pages        # 用户站点可写 master，项目站点必须 gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+
+# 归档页配置
+archive_generator:
+  per_page: 0
