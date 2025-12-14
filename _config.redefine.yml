@@ -137,7 +137,7 @@ home_banner:
   title: Baobao's Blog
   # Home banner subtitle
   subtitle:
-    text: ["Don't shirk work! Run away and pay! Smiles go for miles!"] # subtitle text, array
+    text: ["愿意放弃自由来换取保障的人，最终既得不到自由，也得不到保障。"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
