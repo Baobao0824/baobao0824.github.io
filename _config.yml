@@ -111,3 +111,5 @@ deploy:
 # 归档页配置
 archive_generator:
   per_page: 0
+
+cname: blog.baobao0824.top
