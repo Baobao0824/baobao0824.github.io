@@ -1,5 +1,5 @@
 ---
-title: 阿里云OSS对象存储简单使用指南
+title: 阿里云OSS对象存储入门（PY）
 tags: [代码]
 categories: 代码
 ---
@@ -25,6 +25,8 @@ categories: 代码
 因此我准备使用OSS来进行存储。同时由于阿里云的网站使用起来非常复杂，所有的服务、控制台、接口全在一块，非常的不方便，同时接口也有很多没有解释到位的地方，因此我就准备写这一篇博客，来讲一下自己在使用阿里云OSS的时候碰到了什么坑。
 
 ## 一些基本定义介绍
+
+TODO:这里应该写一下怎么弄一个OSS容器
 
 + Bucket容器：就是一块存储空间，抽象成一个容器罢了。
 + 对象Object：对象（Object）是OSS存储数据的基本单元，也被称为OSS的文件。和传统的文件系统不同，Object没有文件目录层级结构的关系（摘自阿里云官网）。
@@ -71,58 +73,83 @@ cfg.credentials_provider = credentials_provider
 cfg.region = 'cn-hangzhou' 
 client = oss.Client(cfg) # 同步
 client = oss_aio.AsyncClient(cfg) # 异步
+client.close() # 使用后记得释放资源
 ```
 
 ### 关于`cfg.region`
 
-这是你的bucket所在的地区，必须要对应上，通常来讲是`cn-`+城市名，例如华北2在北京，那么该地区的region就是`cn-beijing`。
+这是你的bucket所在的地区，必须要对应上，通常来讲是`cn-`+城市名，例如华北2在北京，那么该地区的region就是`cn-beijing`。至于海外的服务器，由于我手头没有海外的服务器，也没看到阿里云官方的文档，因此我也不知道是啥。
 
 ## 上传文件
 
-TODO: 把这段和下一段写完
+一次上传文件操作是通过构建一个`PutObjectRequest`来完成的，有一些是必填字段，剩下的则是选填字段，这里列出必填和一些重要的选填字段。
+
+必填：
++ `bucket`: `str`，你要上传的目的容器名。
++ `key`: `str`，对象的键名，说白了就是文件名。
+
+选填：
++ `body`: 对象的主体，支持`str`、`bytes`、`IO[str]`、`IO[bytes]`、`Iterable[bytes]`。
++ ...（其他的我还没用过，文档也没写，只能等以后探索了）
+
+传入一个字符串文本`sample_string`的代码如下，我们先创建一个`PutObjectRequst`，然后用`client.put_object`方法来传：
 
 ```py
 put_object_request = oss.PutObjectRequest(
     bucket='bucket_name',
-    key=name,
-    body=data
+    key='object_key',
+    body='sample_string'
 )
 client.put_object(put_object_request) # 同步，异步要加上await
 ```
 
-## 下载文件
+当你知道文件类型的时候，你也可以直接传bytes，配上文件名，就可以达到上传图片的效果。我不知道这是否是最佳实践，因为我在文档里没看见。但我在memedroids_translator中就用的这个，确实可以用。
 
-
-
-## 匹配
+如果想创建文件夹的话，直接修改`key`参数即可。注意不需要用什么`Path`之类的，OSS里用的都是`/`。
 
 ```py
- prefix = (
-        CONFIG["crawler"]["save_path"]
-        if mode == "en"
-        else CONFIG["translate"]["output_path"]
-    )
-    try:
-        object_keys = []
-        continuation_token = None
+correct_key = 'a' + '/' 'b' # 正确
+invalid_key = Path('a') / 'b' # 错误
+```
+
+## 下载文件
+
+和上传文件类似，下载文件要构建的是一个`GetObjectRequest`，这里要传的参数就只用容器名就可以了。
+
+```py
+get_object_request = oss.GetObjectRequest(
+    bucket='bucket_name',
+    key='object_key',
+)
+result = client.get_object() # 同步，异步要加上await
+```
+
+得到`result`后，你需要通过它的`body`属性来获取，因为`result`的`GetObjectResult`对象本质上是一个“响应包装器”，而读取又有两种方式，完整读取和分块读取。
+```py
+# 完整读取
+content_bytes = result.body.read()          # 异步这里有点特殊， await result.body.read()在vscode中会报错，但我亲测是能跑的
+# 分块读取，因为我没用过，所以从阿里云官方文档中直接粘过来了
+with result.body as body_stream:
+    chunk_path = "./get-object-sample-chunks.txt"
+    total_size = 0
+    with open(chunk_path, 'wb') as f:
+        # 使用256KB块大小（可根据需要调整block_size参数）
+        for chunk in body_stream.iter_bytes(block_size=256 * 1024):
+            f.write(chunk)
+            total_size += len(chunk)
+            print(f"已接收数据块：{len(chunk)} bytes | 累计：{total_size} bytes")
+```
+
+## 文件名查找
+
+不是在任何情况下我们都能知道文件的名字的，因此查找合适的文件名也是一个刚需。OSS也给了我们这个功能，利用`ListObjectsV2Request`（我也不知道为什么是V2）就可以了。
+```py
         get_objects_request = oss.ListObjectsV2Request(
             bucket=CONFIG["oss"]["bucket_name"],
-            # 这里其实写死也没事，毕竟阿里云oss用的就是'/'，如果你用Path的话，在win上面反而会拼错
             prefix=prefix + "/",
             max_keys=CONFIG["translate"]["max_key_length"],
             continuation_token=continuation_token,
         )
-        # 获取对象列表
-        result = await OSS_CLIENT.list_objects_v2(get_objects_request)
+        result = OSS_CLIENT.list_objects_v2(get_objects_request)
         if result.contents is not None:
-            for obj in result.contents:
-                object_keys.append(obj.key)
-        else:
-            raise Exception("No objects found in OSS bucket.")
-    except Exception as e:
-        print(f"OSS get object error: {e}")
-    finally:
-        await OSS_CLIENT.close()
-        return object_keys
-
 ```
