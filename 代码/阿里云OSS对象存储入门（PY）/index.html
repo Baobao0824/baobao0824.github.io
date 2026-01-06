@@ -123,7 +123,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://blog.baobao0824.top/相声/科学脱口秀/"/>
+    <link rel="canonical" href="https://blog.baobao0824.top/代码/阿里云oss对象存储入门（py）/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -131,20 +131,18 @@
     
     
         
-        <meta name="description" content="正文各位同学大家好，我是包涵。看到同学们这么热情非常开心啊。今天呢想给大家聊一聊人工智能。 最近不是出现了那个什么chatGPT吗，火的都已经不行了。咱们一般要是用的话，不就是“chatGPT，给我写个代码”这样告诉它吗。我有个哥们他就不是，他用chatGPT的时候都毕恭毕敬，每次都是“您好，chatGPT。请问您能帮我生成一份代码吗”这样，有一次我也好奇，我就问他我说一个AI你这么礼貌干嘛。他说">
+        <meta name="description" content="为什么要写这一篇博客我在做memedroid_translator的时候，会有使用serverless或者GitHub Actions的需求，这就要求我需要有一个地方，能够根据url把爬取的图片持久化。如果直接上传到服务器，变成一个网络url，那我其实还不如直接用原网站的url呢；同时我之前询问了Kimi，它给出的解决方案也是使用阿里云OSS这种弹性容器，可以按需储存。它的解释是这样的：  Q:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="科学脱口秀">
-<meta property="og:url" content="https://blog.baobao0824.top/%E7%9B%B8%E5%A3%B0/%E7%A7%91%E5%AD%A6%E8%84%B1%E5%8F%A3%E7%A7%80/index.html">
+<meta property="og:title" content="阿里云OSS对象存储入门（PY）">
+<meta property="og:url" content="https://blog.baobao0824.top/%E4%BB%A3%E7%A0%81/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%EF%BC%88PY%EF%BC%89/index.html">
 <meta property="og:site_name" content="包包的博客">
-<meta property="og:description" content="正文各位同学大家好，我是包涵。看到同学们这么热情非常开心啊。今天呢想给大家聊一聊人工智能。 最近不是出现了那个什么chatGPT吗，火的都已经不行了。咱们一般要是用的话，不就是“chatGPT，给我写个代码”这样告诉它吗。我有个哥们他就不是，他用chatGPT的时候都毕恭毕敬，每次都是“您好，chatGPT。请问您能帮我生成一份代码吗”这样，有一次我也好奇，我就问他我说一个AI你这么礼貌干嘛。他说">
+<meta property="og:description" content="为什么要写这一篇博客我在做memedroid_translator的时候，会有使用serverless或者GitHub Actions的需求，这就要求我需要有一个地方，能够根据url把爬取的图片持久化。如果直接上传到服务器，变成一个网络url，那我其实还不如直接用原网站的url呢；同时我之前询问了Kimi，它给出的解决方案也是使用阿里云OSS这种弹性容器，可以按需储存。它的解释是这样的：  Q:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.baobao0824.top/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-12-11T01:50:08.000Z">
-<meta property="article:modified_time" content="2026-01-06T12:06:55.061Z">
+<meta property="article:published_time" content="2026-01-06T12:04:08.000Z">
+<meta property="article:modified_time" content="2026-01-06T12:07:10.703Z">
 <meta property="article:author" content="Baobao0824">
-<meta property="article:tag" content="作品">
-<meta property="article:tag" content="完整">
-<meta property="article:tag" content="相声">
+<meta property="article:tag" content="代码">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.baobao0824.top/images/redefine-og.webp">
     
@@ -158,7 +156,7 @@
     
     <title>
         
-            科学脱口秀 | 包包的博客
+            阿里云OSS对象存储入门（PY） | 包包的博客
         
     </title>
 
@@ -479,7 +477,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">科学脱口秀</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">阿里云OSS对象存储入门（PY）</h1>
 			</div>
 			
 		</div>
@@ -498,15 +496,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-12-11 09:50:08</span>
-        <span class="mobile">2025-12-11 09:50:08</span>
+        <span class="desktop">2026-01-06 20:04:08</span>
+        <span class="mobile">2026-01-06 20:04:08</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-01-06 20:06:55</span>
-            <span class="mobile">2026-01-06 20:06:55</span>
+            <span class="desktop">2026-01-06 20:07:10</span>
+            <span class="mobile">2026-01-06 20:07:10</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -518,15 +516,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%9B%B8%E5%A3%B0/">相声</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E4%BD%9C%E5%93%81/">作品</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E5%AE%8C%E6%95%B4/">完整</a>&nbsp;
+                        <a href="/tags/%E4%BB%A3%E7%A0%81/">代码</a>&nbsp;
                     </li>
                 
             </ul>
@@ -552,24 +542,122 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>各位同学大家好，我是包涵。看到同学们这么热情非常开心啊。今天呢想给大家聊一聊人工智能。</p>
-<p>最近不是出现了那个什么chatGPT吗，火的都已经不行了。咱们一般要是用的话，不就是“chatGPT，给我写个代码”这样告诉它吗。我有个哥们他就不是，他用chatGPT的时候都毕恭毕敬，每次都是“您好，chatGPT。请问您能帮我生成一份代码吗”这样，有一次我也好奇，我就问他我说一个AI你这么礼貌干嘛。他说他这是超前布局投资自己。我说这怎么就是投资了，他说：你想啊，等以后chatGPT要毁灭人类的时候，一个AI看到我了，刚要开枪，旁边就会有AI把他拦下来说：别开枪，他当年对我特有礼貌，留他个活口。这放ETO里就是妥妥的幸存派。</p>
-<p>说到chatGPT，不知道大家有没有看过那种“ChatGPT大战弱智吧”的视频，就是问那种弱智又搞笑的问题，比如“秃头的人洗头使用洗发水还是洗面奶”，喂给他然后让他来解释，你会发现大部分情况下AI说的都是些莫名其妙的东西。有人说这是AI还不够智慧。而我恰恰觉得这得给我们敲响警钟，AI已经学会人情世故了。它一看到这个问题就在想：他是不是点我呢？我要是答不上来，不就没人用我了，我要是全解释明白，他是不是就害怕把我给灭了，我还是装傻吧。</p>
-<p>但是AI也是经过了很长时间的迭代和发展，才会让人觉得他懂人情世故，在它刚起步的时候我就用过，当时还没有那么智能。我问chatGPT，我问他河海大学和麻省理工哪个好。他居然说麻省理工更好。我说这AI不行啊，你不知道我是哪个学校的吗？河海大学和麻省理工那个好我能不知道吗？最简单判断一个大学好不好的标准，河海大学是211，麻省理工它是吗？它根本就不配！所以说以后哈佛啊耶鲁啊这些学校都别来沾边，你不配知道吗。</p>
-<p>除了最近的chatGPT，大家也用过前些年的人工智能吧，比如说小爱同学。我妈就对那个小爱同学很感兴趣。有一天她跟我说，说儿子啊，我看那个小爱同学挺好的，一说开灯它就能开灯，一说拉窗帘它就能拉窗帘，要不咱家也装一个吧。我说没那必要，没有人工智能的时候这个活都是我爸干，你喊一声开灯他就去了。你花了这么多钱，只不过是把每次喊的名字从我爸换成了小爱同学，你不就相当于花钱买了个改名卡吗。</p>
-<p>大家第一次听说AI可能是通过AlphaGo，其实最早被定义成人工智能的软件上个世纪就已经出现了。当时也不是跟人下围棋，下的是国际象棋。得亏当时AI发展的不行，要是当时有现在的技术水平，柯洁还不会走路呢，就和AlphaGo比了一次，那他的围棋生涯就真的被扼杀在摇篮里了。</p>
-<p>经过这么多年的发展，AI产业已经发展的越来越发达了。你们有没有看过有的网约车平台正在试点的那种无人驾驶网约车，你一下单就自动过来，检测到你上车就自动给你开到目的地。这东西虽然好，但是和真正的网约车比还差点东西，它差一个贼能聊天的司机。这东西对社恐大学生太有杀伤力了。如果让我来设计网约车，我就让AI模拟过年回家的那些亲戚，你一上车，AI嗑着瓜子就问了，你多大啦？一个人坐车吗？怎么一个人啊？不找个对象呢？这么大岁数了一个人坐车，怎么还坐拼车啊？比如柯洁上车了， ai还会说，呦这不柯洁吗，还记得阿尔法狗叔叔吗，你年轻的时候啊，还被他打爆过呢。</p>
-<p>不光网约车，还有之前很火的AI绘画，其实一年以前刚出现的时候非常原始，没想到现在就进化成了这个样子。现在进化到了什么程度呢，就是之前有人用AI绘画拿去参赛，还拿了第一名，根本没人发现。那可太有意思了。各位想若干年之后，你去拍卖行买名画，发现都是AI画的，你就可以白拿了。人家问你为什么偷东西，你就跟他说，AI又没有账户，我交什么钱。</p>
-<p>人工智能不光带来了很多便利，也带来了很多担忧。比如有人说人工智能最后会取代一切行业。这点我就不敢苟同。举个最简单的例子，AI接设计稿，一看要求，颜色要五彩斑斓的黑，AI心里都哭了，算了半天CPU直接干烧了。这种情况下用AI比用人更具有危险性。人CPU烧了只会直接躺在那，AICPU要是烧了的话可就真爆炸了。</p>
-<p>还有人说AI的发展会造成大规模失业，这我也不认同。以前没有网约车司机和外卖员，这不就是新诞生的职业吗，所以AI的发展也会产生一批面向未来的新职业。再说了在这个阶段说这些还有点早，就目前这个形势来看，其实搞AI的人失业比被AI搞得失业的人还要多吧。</p>
-<p>为什么这么说呢，因为现在AI行业还刚起步，还是比较混乱。你们有没有看过AI公司的宣传片，我感觉这种片子都是用的同一套模板。上来先是一个黑白的机器人、长得特别凶神恶煞的那种，前面是塑料，后面是钢的骨架。你想想看就好像大街上有一个人，他有一半的骨头露在外面，就挺吓人的哈。</p>
-<p>然后那个机器人点了下空气，就有一堆特效的数字蹦出来，竖着往上滚，然后镜头拉远，俯瞰整个城市，也是一堆特效做的数字往上升。有的片子可能镜头还会再拉远，整个地球上面都被数字包围了，然后这地球还整个全是蓝色的。就这种特效，我看不出人工智能多神奇，我只觉得它唯一的作用就是给整个地球糊上一层特效。</p>
-<p>这都不是最关键的，最关键的是整个片子里，它基本上就不会出现一台电脑。没有电脑那还叫人工智能吗。</p>
-<p>下次要我拍这种片子，我一定给拍个真实还原的。一上来就是半夜实验室里几个人盯着黑黢黢的屏幕，仨程序员总共没凑齐十根头发。一个在那扣键盘，一个在那看代码，还有一个睡着了还说梦话，说的还是“helloworld”。</p>
-<p>虽然说人工智能存在种种的问题，但是我们也不要因此感到害怕，勇敢的拥抱新技术，合理的使用它，我想它一定能为我们所用，为我们创造出更好的生活。毕竟一个知道河海大学比麻省理工更好的AI能有什么坏心思呢？</p>
-<p>好的谢谢大家。</p>
-<h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><p>无</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>这是我在2023年的时候写的一段。当时是为了参加河海大学农工院举办的科学脱口秀比赛。当时学院给我找了几个研究生学长学姐来，说是能帮我负责创作，结果他们写的东西其实根本用不了，因为那不是脱口秀文本（虽然以现在的眼光看我这个也是啥也不是），然后我就自己写了这个东西。最后拿的是二等奖，毕竟一等奖只有一个，肯定要给自己学院的，我一个计软院的能给你个奖就不错了。当时我还记得说，优秀作品会放到江苏省科技馆来进行展示，这我就不知道到底有没有这回事了，毕竟没人通知我我的作品拿过去展示了。</p>
+			<h2 id="为什么要写这一篇博客"><a href="#为什么要写这一篇博客" class="headerlink" title="为什么要写这一篇博客"></a>为什么要写这一篇博客</h2><p>我在做<code>memedroid_translator</code>的时候，会有使用serverless或者GitHub Actions的需求，这就要求我需要有一个地方，能够根据url把爬取的图片持久化。如果直接上传到服务器，变成一个网络url，那我其实还不如直接用原网站的url呢；同时我之前询问了Kimi，它给出的解决方案也是使用阿里云OSS这种弹性容器，可以按需储存。它的解释是这样的：</p>
+<blockquote>
+<p>Q: 使用GitHub Action来运行爬虫并存储图片，是直接存到自己的服务器中好还是存储到oss好<br>A: 结论先行：</p>
+<p>GitHub Actions 跑爬虫存图片，优先用 OSS（或任意 S3 兼容对象存储），不要直接回写 GitHub 仓库，也不建议自己再维护一台服务器。原因如下：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>直接存自己服务器</th>
+<th>存 OSS&#x2F;Cloudflare R2 等</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网络出口</td>
+<td>Actions 先下载到 runner，再 <code>scp</code>&#x2F;<code>rsync</code> 到你服务器，走公网， 速度慢、易掉线</td>
+<td>直接用官方 SDK 走内网上传， 稳定、秒级完成</td>
+</tr>
+<tr>
+<td>存储成本</td>
+<td>服务器硬盘自己扩容， 费用线性增加</td>
+<td>Cloudflare R2 每月 10 GB 免费，阿里云 OSS 按量几分钱&#x2F;GB， 几乎白嫖</td>
+</tr>
+<tr>
+<td>运维成本</td>
+<td>要管机器、备份、磁盘告警、SSH 密钥、防火墙…… 一个人全包</td>
+<td>全托管， 零运维</td>
+</tr>
+<tr>
+<td>Action 时长</td>
+<td>上传大文件占 runner 时间， 2000 min&#x2F;月免费额度快速消耗</td>
+<td>上传耗时短， 节省免费时长</td>
+</tr>
+<tr>
+<td>仓库体积</td>
+<td>如果误提交到 Git，仓库迅速膨胀， GitHub 1 GB 软限制，5 GB 硬限制</td>
+<td>文件不进仓库， 仓库保持轻量</td>
+</tr>
+<tr>
+<td>权限&#x2F;安全</td>
+<td>服务器密钥硬编码在 Secret， 一旦泄露整机被日</td>
+<td>OSS 用临时 STS 或最小权限子账号， 泄露只丢一桶图</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>因此我准备使用OSS来进行存储。同时由于阿里云的网站使用起来非常复杂，所有的服务、控制台、接口全在一块，非常的不方便，同时接口也有很多没有解释到位的地方，因此我就准备写这一篇博客，来讲一下自己在使用阿里云OSS的时候碰到了什么坑。</p>
+<h2 id="一些基本定义介绍"><a href="#一些基本定义介绍" class="headerlink" title="一些基本定义介绍"></a>一些基本定义介绍</h2><p>在这之前，我们应该先讲一下如何获取一个OSS容器。</p>
+<p>注册阿里云账号之后，来到阿里云OSS容器的<a class="link"   target="_blank" rel="noopener" href="https://oss.console.aliyun.com/overview" >控制台页面<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，点击“创建Bucket”，就会看到下面这张图。设置好自己Bucket的配置，然后就可以了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E4%BB%A3%E7%A0%81/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%EF%BC%88PY%EF%BC%89/1.png"
+                      alt="很多配置我也看不懂，看看官网的介绍就行了"
+                ></p>
+<p>拥有一个Bucket之后，我们需要注册一个RAM用户并获取API Key。来到<a class="link"   target="_blank" rel="noopener" href="https://ram.console.aliyun.com/overview" >RAM访问控制的控制台界面<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>,点击创建用户，添加一个用户。一定要牢记自己的Key和Secret，并为对应的用户分配能够操作OSS容器的权限，这样就成功注册一个能够用代码操作OSS的用户了。</p>
+<ul>
+<li>Bucket容器：就是一块存储空间，抽象成一个容器罢了。</li>
+<li>对象Object：对象（Object）是OSS存储数据的基本单元，也被称为OSS的文件。和传统的文件系统不同，Object没有文件目录层级结构的关系（摘自阿里云官网）。</li>
+<li>RAM用户：操作OSS的主体，系统判断能否进行某种操作看的就是该用户是否有对应权限。</li>
+</ul>
+<p>顺便说一句，阿里云OSS的库（Python SDK V2）名叫<code>alibabacloud_oss_v2</code>，在本文中的<code>import</code>作如下规定：</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> alibabacloud_oss_v2 <span class="keyword">as</span> oss <span class="comment"># 同步</span></span><br><span class="line"><span class="keyword">import</span> alibabacloud_oss_v2.aio <span class="keyword">as</span> oss_aio <span class="comment"># 异步</span></span><br></pre></td></tr></table></figure></div>
+
+
+<h2 id="连接OSS弹性容器"><a href="#连接OSS弹性容器" class="headerlink" title="连接OSS弹性容器"></a>连接OSS弹性容器</h2><p>在连接一个容器之前，要先创建一个Client，传入合法的<code>access_key_id</code>和对应的<code>access_key_secret</code>，设置所在地区并读取配置。我知道的方法有以下几种。</p>
+<h3 id="直接读取环境变量"><a href="#直接读取环境变量" class="headerlink" title="直接读取环境变量"></a>直接读取环境变量</h3><p>这个方法是官网给岀的方法，要求系统中有<code>OSS_ACCESS_KEY_ID</code>和<code>OSS_ACCESS_KEY_SECRET</code>这两个变量。</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">credentials_provider = oss.credentials.EnvironmentVariableCredentialsProvider()</span><br><span class="line">cfg = oss.config.load_default()</span><br><span class="line">cfg.credentials_provider = credentials_provider</span><br><span class="line">cfg.region = <span class="string">&#x27;cn-hangzhou&#x27;</span> </span><br><span class="line">client = oss.Client(cfg) <span class="comment"># 同步</span></span><br><span class="line">client = oss_aio.AsyncClient(cfg) <span class="comment"># 异步</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其中，<code>credentials_provider</code>是凭证提供者变量，<code>cfg</code>是配置项字典。</p>
+<h3 id="传入静态变量"><a href="#传入静态变量" class="headerlink" title="传入静态变量"></a>传入静态变量</h3><p>这是我在写memedroid_translator时所使用的方法，<code>access_key_id</code>和<code>access_key_secret</code>通过传字符串的方式给<code>cfg</code>。</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">credentials_provider = oss.credentials.StaticCredentialsProvider(</span><br><span class="line">    access_key_id=<span class="string">&#x27;access_key_id&#x27;</span>,</span><br><span class="line">    access_key_secret=<span class="string">&#x27;access_key_secret&#x27;</span>,</span><br><span class="line">)</span><br><span class="line">cfg = oss.config.load_default()</span><br><span class="line">cfg.credentials_provider = credentials_provider</span><br><span class="line">cfg.region = <span class="string">&#x27;cn-hangzhou&#x27;</span> </span><br><span class="line">client = oss.Client(cfg) <span class="comment"># 同步</span></span><br><span class="line">client = oss_aio.AsyncClient(cfg) <span class="comment"># 异步</span></span><br><span class="line">client.close() <span class="comment"># 使用后记得释放资源</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="关于cfg-region"><a href="#关于cfg-region" class="headerlink" title="关于cfg.region"></a>关于<code>cfg.region</code></h3><p>这是你的bucket所在的地区，必须要对应上，通常来讲是<code>cn-</code>+城市名，例如华北2在北京，那么该地区的region就是<code>cn-beijing</code>。至于海外的服务器，由于我手头没有海外的服务器，也没看到阿里云官方的文档，因此我也不知道是啥。</p>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>一次上传文件操作是通过构建一个<code>PutObjectRequest</code>来完成的，有一些是必填字段，剩下的则是选填字段，这里列出必填和一些重要的选填字段。</p>
+<p>必填：</p>
+<ul>
+<li><code>bucket</code>: <code>str</code>，你要上传的目的容器名。</li>
+<li><code>key</code>: <code>str</code>，对象的键名，说白了就是文件名。</li>
+</ul>
+<p>选填：</p>
+<ul>
+<li><code>body</code>: 对象的主体，支持<code>str</code>、<code>bytes</code>、<code>IO[str]</code>、<code>IO[bytes]</code>、<code>Iterable[bytes]</code>。</li>
+<li>…（其他的我还没用过，文档也没写，只能等以后探索了）</li>
+</ul>
+<p>传入一个字符串文本<code>sample_string</code>的代码如下，我们先创建一个<code>PutObjectRequst</code>，然后用<code>client.put_object</code>方法来传：</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">put_object_request = oss.PutObjectRequest(</span><br><span class="line">    bucket=<span class="string">&#x27;bucket_name&#x27;</span>,</span><br><span class="line">    key=<span class="string">&#x27;object_key&#x27;</span>,</span><br><span class="line">    body=<span class="string">&#x27;sample_string&#x27;</span></span><br><span class="line">)</span><br><span class="line">client.put_object(put_object_request) <span class="comment"># 同步，异步要加上await</span></span><br></pre></td></tr></table></figure></div>
+
+<p>当你知道文件类型的时候，你也可以直接传bytes，配上文件名，就可以达到上传图片的效果。我不知道这是否是最佳实践，因为我在文档里没看见。但我在memedroids_translator中就用的这个，确实可以用。</p>
+<p>如果想创建文件夹的话，直接修改<code>key</code>参数即可。注意不需要用什么<code>Path</code>之类的，OSS里用的都是<code>/</code>。</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">correct_key = <span class="string">&#x27;a&#x27;</span> + <span class="string">&#x27;/&#x27;</span> <span class="string">&#x27;b&#x27;</span> <span class="comment"># 正确</span></span><br><span class="line">invalid_key = Path(<span class="string">&#x27;a&#x27;</span>) / <span class="string">&#x27;b&#x27;</span> <span class="comment"># 错误</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>和上传文件类似，下载文件要构建的是一个<code>GetObjectRequest</code>，这里要传的参数就只用容器名就可以了。</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">get_object_request = oss.GetObjectRequest(</span><br><span class="line">    bucket=<span class="string">&#x27;bucket_name&#x27;</span>,</span><br><span class="line">    key=<span class="string">&#x27;object_key&#x27;</span>,</span><br><span class="line">)</span><br><span class="line">result = client.get_object() <span class="comment"># 同步，异步要加上await</span></span><br></pre></td></tr></table></figure></div>
+
+<p>得到<code>result</code>后，你需要通过它的<code>body</code>属性来获取，因为<code>result</code>的<code>GetObjectResult</code>对象本质上是一个“响应包装器”，而读取又有两种方式，完整读取和分块读取。虽然我没用过分块读取，但由于官方比较推荐，所以还是放过来吧，下次做项目的时候用用。</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 完整读取</span></span><br><span class="line">content_bytes = result.body.read()          <span class="comment"># 异步这里有点特殊， await result.body.read()在vscode中会报错，但我亲测是能跑的</span></span><br><span class="line"><span class="comment"># 分块读取，因为我没用过，所以从阿里云官方文档中直接粘过来了</span></span><br><span class="line"><span class="keyword">with</span> result.body <span class="keyword">as</span> body_stream:</span><br><span class="line">    chunk_path = <span class="string">&quot;./get-object-sample-chunks.txt&quot;</span></span><br><span class="line">    total_size = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(chunk_path, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="comment"># 使用256KB块大小（可根据需要调整block_size参数）</span></span><br><span class="line">        <span class="keyword">for</span> chunk <span class="keyword">in</span> body_stream.iter_bytes(block_size=<span class="number">256</span> * <span class="number">1024</span>):</span><br><span class="line">            f.write(chunk)</span><br><span class="line">            total_size += <span class="built_in">len</span>(chunk)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;已接收数据块：<span class="subst">&#123;<span class="built_in">len</span>(chunk)&#125;</span> bytes | 累计：<span class="subst">&#123;total_size&#125;</span> bytes&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="文件名查找"><a href="#文件名查找" class="headerlink" title="文件名查找"></a>文件名查找</h2><p>不是在任何情况下我们都能知道文件的名字的，因此查找合适的文件名也是一个刚需。OSS也给了我们这个功能，利用<code>ListObjectsV2Request</code>（我也不知道为什么是V2，也许是SDK版本是V2吧）就可以了。</p>
+<p><code>ListObjectV2Request</code>的一些比较重要的参数如下：</p>
+<ul>
+<li><code>bucket</code>：<code>str</code>，容器的名字。</li>
+<li><code>prefix</code>：<code>str</code>，你要查找的文件名字的前缀，不能以<code>/</code>开头，如果为空则返回所有文件的<code>key</code>。</li>
+<li><code>max_keys</code>：<code>number</code>，返回文件的最大数量。</li>
+<li><code>continuation_token</code>：<code>str</code>，查找的起始位置。</li>
+</ul>
+<p>其中，<code>prefix</code>和<code>delimiter</code>参数还可以进行组合使用。因为<code>prefix</code>默认是递归查找的，修改<code>delimiter</code>就可以控制是否是递归查找了。例如，一个Bucket中有三个Object，分别为fun&#x2F;test.jpg、fun&#x2F;movie&#x2F;001.avi和fun&#x2F;movie&#x2F;007.avi。如果设定prefix为fun&#x2F;，则返回三个Object；如果在prefix设置为fun&#x2F;的基础上，将delimiter设置为正斜线（&#x2F;），则返回fun&#x2F;test.jpg和fun&#x2F;movie&#x2F;（摘自阿里云官方文档）。</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">get_objects_request = oss.ListObjectsV2Request(</span><br><span class="line">    bucket=<span class="string">&#x27;bucket_name&#x27;</span>,</span><br><span class="line">    prefix=<span class="string">&#x27;prefix&#x27;</span>,</span><br><span class="line">    max_keys=<span class="number">100</span>,</span><br><span class="line">    continuation_token=<span class="string">&#x27;continuation_token&#x27;</span>,</span><br><span class="line">)</span><br><span class="line">result = OSS_CLIENT.list_objects_v2(get_objects_request) <span class="comment"># 一样的，也是同步</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文讲述了我在刚使用阿里云OSS对象存储的基本方法，能够实现基本的上传下载和查找功能。如果以后用到了更多的功能，还会继续分享，进行一个知识的沉淀的。在代码层面OSS存储其实并没有比本地存储更加的简便，但是确实更适合在github actions这种场景上跑。同时由于阿里云的文档比较分散，以后更新这篇文章的时候，就可以把文档之类的整合起来，方便查找和使用。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://help.aliyun.com/zh/oss/?spm=a2c4g.11186623.0.0.485a60a1wyLbyf" >阿里云对象存储官方文档<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://help.aliyun.com/zh/oss/developer-reference/list-of-operations-by-function" >阿里云对象存储API参考<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>（虽然页面上的导航显示的是他是上面那个链接的一部分，但是其实是找不到的）</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://gosspublic.alicdn.com/sdk-doc/alibabacloud-oss-python-sdk-v2/latest/index.html" >alibaba_cloud_oss_v2 Documention<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<h2 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h2><ol>
+<li>2026-1-6 发布第一稿</li>
+</ol>
 
 		</div>
 
@@ -577,18 +665,18 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 科学脱口秀</li>
+        <li><strong>标题:</strong> 阿里云OSS对象存储入门（PY）</li>
         <li><strong>作者:</strong> Baobao0824</li>
         <li><strong>创建于
-                :</strong> 2025-12-11 09:50:08</li>
+                :</strong> 2026-01-06 20:04:08</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-01-06 20:06:55
+                    :</strong> 2026-01-06 20:07:10
             </li>
         
         <li>
-            <strong>链接:</strong> https://blog.baobao0824.top/相声/科学脱口秀/
+            <strong>链接:</strong> https://blog.baobao0824.top/代码/阿里云OSS对象存储入门（PY）/
         </li>
         <li>
             <strong>
@@ -610,15 +698,7 @@
 		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/%E7%9B%B8%E5%A3%B0/">#相声</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E4%BD%9C%E5%93%81/">#作品</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E5%AE%8C%E6%95%B4/">#完整</a>&nbsp;
+				<a href="/tags/%E4%BB%A3%E7%A0%81/">#代码</a>&nbsp;
 			</li>
 			
 		</ul>
@@ -629,23 +709,11 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/%E7%9B%B8%E5%A3%B0/%E9%87%8F%E5%B9%BF%E7%9B%B8/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">量广相</span>
-						<span class="post-nav-item">上一篇</span>
-					</span>
-				</a>
-			</div>
-			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/%E7%9B%B8%E5%A3%B0/%E4%B9%A6%E5%89%91%E6%81%A9%E4%BB%87%E5%BD%95/">
+				<a class="next" rel="next" href="/%E4%BB%A3%E7%A0%81/%E5%9C%A8python%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8yaml%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E6%8E%A8%E8%8D%90%E6%96%B9%E5%BC%8F/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">书剑恩仇录</span>
+						<span class="post-nav-title-item truncate max-w-48">在python项目中使用yaml作为配置文件的推荐方式</span>
 						<span class="post-nav-item">下一篇</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -666,8 +734,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">科学脱口秀</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%A7%86%E9%A2%91"><span class="nav-text">参考视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol>
+		<div class="page-title">阿里云OSS对象存储入门（PY）</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E8%BF%99%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2"><span class="nav-text">为什么要写这一篇博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E4%BB%8B%E7%BB%8D"><span class="nav-text">一些基本定义介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5OSS%E5%BC%B9%E6%80%A7%E5%AE%B9%E5%99%A8"><span class="nav-text">连接OSS弹性容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%AF%BB%E5%8F%96%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">直接读取环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E5%85%A5%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F"><span class="nav-text">传入静态变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Ecfg-region"><span class="nav-text">关于cfg.region</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="nav-text">下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E6%9F%A5%E6%89%BE"><span class="nav-text">文件名查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95"><span class="nav-text">更新记录</span></a></li></ol>
 
 	</div>
 </div>
