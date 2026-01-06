@@ -2,7 +2,6 @@
 title: 在python项目中使用yaml作为配置文件的推荐方式
 date: 2025-12-25 15:15:25
 tags: [代码]
-categories: 代码
 ---
 
 ## 前言

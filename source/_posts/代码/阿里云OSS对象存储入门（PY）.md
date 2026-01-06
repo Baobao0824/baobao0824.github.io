@@ -1,8 +1,9 @@
 ---
 title: 阿里云OSS对象存储入门（PY）
 tags: [代码]
-categories: 代码
+date: 2026-01-06 20:04:08
 ---
+
 
 ## 为什么要写这一篇博客
 
@@ -26,7 +27,13 @@ categories: 代码
 
 ## 一些基本定义介绍
 
-TODO:这里应该写一下怎么弄一个OSS容器
+在这之前，我们应该先讲一下如何获取一个OSS容器。
+
+注册阿里云账号之后，来到阿里云OSS容器的[控制台页面](https://oss.console.aliyun.com/overview)，点击“创建Bucket”，就会看到下面这张图。设置好自己Bucket的配置，然后就可以了。
+
+![很多配置我也看不懂，看看官网的介绍就行了](1.png)
+
+拥有一个Bucket之后，我们需要注册一个RAM用户并获取API Key。来到[RAM访问控制的控制台界面](https://ram.console.aliyun.com/overview),点击创建用户，添加一个用户。一定要牢记自己的Key和Secret，并为对应的用户分配能够操作OSS容器的权限，这样就成功注册一个能够用代码操作OSS的用户了。
 
 + Bucket容器：就是一块存储空间，抽象成一个容器罢了。
 + 对象Object：对象（Object）是OSS存储数据的基本单元，也被称为OSS的文件。和传统的文件系统不同，Object没有文件目录层级结构的关系（摘自阿里云官网）。
@@ -124,7 +131,8 @@ get_object_request = oss.GetObjectRequest(
 result = client.get_object() # 同步，异步要加上await
 ```
 
-得到`result`后，你需要通过它的`body`属性来获取，因为`result`的`GetObjectResult`对象本质上是一个“响应包装器”，而读取又有两种方式，完整读取和分块读取。
+得到`result`后，你需要通过它的`body`属性来获取，因为`result`的`GetObjectResult`对象本质上是一个“响应包装器”，而读取又有两种方式，完整读取和分块读取。虽然我没用过分块读取，但由于官方比较推荐，所以还是放过来吧，下次做项目的时候用用。
+
 ```py
 # 完整读取
 content_bytes = result.body.read()          # 异步这里有点特殊， await result.body.read()在vscode中会报错，但我亲测是能跑的
@@ -142,14 +150,37 @@ with result.body as body_stream:
 
 ## 文件名查找
 
-不是在任何情况下我们都能知道文件的名字的，因此查找合适的文件名也是一个刚需。OSS也给了我们这个功能，利用`ListObjectsV2Request`（我也不知道为什么是V2）就可以了。
+不是在任何情况下我们都能知道文件的名字的，因此查找合适的文件名也是一个刚需。OSS也给了我们这个功能，利用`ListObjectsV2Request`（我也不知道为什么是V2，也许是SDK版本是V2吧）就可以了。
+
+`ListObjectV2Request`的一些比较重要的参数如下：
+
++ `bucket`：`str`，容器的名字。
++ `prefix`：`str`，你要查找的文件名字的前缀，不能以`/`开头，如果为空则返回所有文件的`key`。
++ `max_keys`：`number`，返回文件的最大数量。
++ `continuation_token`：`str`，查找的起始位置。
+
+其中，`prefix`和`delimiter`参数还可以进行组合使用。因为`prefix`默认是递归查找的，修改`delimiter`就可以控制是否是递归查找了。例如，一个Bucket中有三个Object，分别为fun/test.jpg、fun/movie/001.avi和fun/movie/007.avi。如果设定prefix为fun/，则返回三个Object；如果在prefix设置为fun/的基础上，将delimiter设置为正斜线（/），则返回fun/test.jpg和fun/movie/（摘自阿里云官方文档）。
+
 ```py
-        get_objects_request = oss.ListObjectsV2Request(
-            bucket=CONFIG["oss"]["bucket_name"],
-            prefix=prefix + "/",
-            max_keys=CONFIG["translate"]["max_key_length"],
-            continuation_token=continuation_token,
-        )
-        result = OSS_CLIENT.list_objects_v2(get_objects_request)
-        if result.contents is not None:
+    get_objects_request = oss.ListObjectsV2Request(
+        bucket='bucket_name',
+        prefix='prefix',
+        max_keys=100,
+        continuation_token='continuation_token',
+    )
+    result = OSS_CLIENT.list_objects_v2(get_objects_request) # 一样的，也是同步
 ```
+
+## 总结
+
+本文讲述了我在刚使用阿里云OSS对象存储的基本方法，能够实现基本的上传下载和查找功能。如果以后用到了更多的功能，还会继续分享，进行一个知识的沉淀的。在代码层面OSS存储其实并没有比本地存储更加的简便，但是确实更适合在github actions这种场景上跑。同时由于阿里云的文档比较分散，以后更新这篇文章的时候，就可以把文档之类的整合起来，方便查找和使用。
+
+## 参考链接
+
++ [阿里云对象存储官方文档](https://help.aliyun.com/zh/oss/?spm=a2c4g.11186623.0.0.485a60a1wyLbyf)
++ [阿里云对象存储API参考](https://help.aliyun.com/zh/oss/developer-reference/list-of-operations-by-function)（虽然页面上的导航显示的是他是上面那个链接的一部分，但是其实是找不到的）
++ [alibaba_cloud_oss_v2 Documention](https://gosspublic.alicdn.com/sdk-doc/alibabacloud-oss-python-sdk-v2/latest/index.html)
+
+## 更新记录
+
+1. 2026-1-6 发布第一稿
