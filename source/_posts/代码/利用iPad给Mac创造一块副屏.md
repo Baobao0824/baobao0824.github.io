@@ -2,6 +2,7 @@
 title: 利用iPad给Mac创造一块副屏
 date: 2025-12-24 21:16:11
 tags: [代码]
+categories: 代码
 ---
 
 ## 前言
