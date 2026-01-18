@@ -123,7 +123,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://blog.baobao0824.top/代码/在python项目中使用yaml作为配置文件的推荐方式/"/>
+    <link rel="canonical" href="https://blog.baobao0824.top/相声文本/书剑恩仇录/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -131,19 +131,18 @@
     
     
         
-        <meta name="description" content="前言众所周知，目前市面上有几个比较主流的、用来做配置文件的标记语言。在js环境中，用json比较多；在java环境中主要用的是xml，而python环境中用的则是yaml。由于组里的项目在要求我们“能通过yaml文件来自定义配置”，因此就顺便学了一下yaml的使用，同时也摸索了一下比较好用的使用方式。虽然不一定可能是python官方推荐的最佳实践，但是确实在平常写代码的时候比较好用。 教程正文ya">
+        <meta name="description" content="正文甲 感谢大伙吧 乙 感谢各位 甲 一上台呢，先给大伙做一个自我介绍 乙 嗯 甲 我是来自计算机学院的包包 乙 是他 甲 旁边这位呢，是xx学院的xx 乙 是我 甲 很高兴啊，能够来到研究生文化艺术节的舞台 乙 是啊 甲 为什么咱们要来呢 乙 您给说说 甲 因为啊，我们哥俩发现 乙 发现什么 甲 我发现我们俩在学术界不能有什么成就了 乙 为什么呢 甲 现在硕士博士那么多，咱们很难出名啊 乙 那你">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在python项目中使用yaml作为配置文件的推荐方式">
-<meta property="og:url" content="https://blog.baobao0824.top/%E4%BB%A3%E7%A0%81/%E5%9C%A8python%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8yaml%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E6%8E%A8%E8%8D%90%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:title" content="书剑恩仇录">
+<meta property="og:url" content="https://blog.baobao0824.top/%E7%9B%B8%E5%A3%B0%E6%96%87%E6%9C%AC/%E4%B9%A6%E5%89%91%E6%81%A9%E4%BB%87%E5%BD%95/index.html">
 <meta property="og:site_name" content="包包的博客">
-<meta property="og:description" content="前言众所周知，目前市面上有几个比较主流的、用来做配置文件的标记语言。在js环境中，用json比较多；在java环境中主要用的是xml，而python环境中用的则是yaml。由于组里的项目在要求我们“能通过yaml文件来自定义配置”，因此就顺便学了一下yaml的使用，同时也摸索了一下比较好用的使用方式。虽然不一定可能是python官方推荐的最佳实践，但是确实在平常写代码的时候比较好用。 教程正文ya">
+<meta property="og:description" content="正文甲 感谢大伙吧 乙 感谢各位 甲 一上台呢，先给大伙做一个自我介绍 乙 嗯 甲 我是来自计算机学院的包包 乙 是他 甲 旁边这位呢，是xx学院的xx 乙 是我 甲 很高兴啊，能够来到研究生文化艺术节的舞台 乙 是啊 甲 为什么咱们要来呢 乙 您给说说 甲 因为啊，我们哥俩发现 乙 发现什么 甲 我发现我们俩在学术界不能有什么成就了 乙 为什么呢 甲 现在硕士博士那么多，咱们很难出名啊 乙 那你">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.baobao0824.top/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-12-25T07:15:25.000Z">
-<meta property="article:modified_time" content="2026-01-18T02:08:04.548Z">
+<meta property="article:published_time" content="2025-12-11T00:55:27.000Z">
+<meta property="article:modified_time" content="2026-01-18T11:54:33.247Z">
 <meta property="article:author" content="Baobao0824">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="代码">
+<meta property="article:tag" content="相声文本">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.baobao0824.top/images/redefine-og.webp">
     
@@ -157,7 +156,7 @@
     
     <title>
         
-            在python项目中使用yaml作为配置文件的推荐方式 | 包包的博客
+            书剑恩仇录 | 包包的博客
         
     </title>
 
@@ -451,11 +450,11 @@
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -478,7 +477,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">在python项目中使用yaml作为配置文件的推荐方式</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">书剑恩仇录</h1>
 			</div>
 			
 		</div>
@@ -497,15 +496,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-12-25 15:15:25</span>
-        <span class="mobile">2025-12-25 15:15:25</span>
+        <span class="desktop">2025-12-11 08:55:27</span>
+        <span class="mobile">2025-12-11 08:55:27</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-01-18 10:08:04</span>
-            <span class="mobile">2026-01-18 10:08:04</span>
+            <span class="desktop">2026-01-18 19:54:33</span>
+            <span class="mobile">2026-01-18 19:54:33</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -519,7 +518,7 @@
                     
                         
                         <li>
-                            <a href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>&nbsp;
+                            <a href="/categories/%E7%9B%B8%E5%A3%B0%E6%96%87%E6%9C%AC/">相声文本</a>&nbsp;
                         </li>
                     
                     
@@ -533,11 +532,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E4%BB%A3%E7%A0%81/">代码</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/python/">python</a>&nbsp;
+                        <a href="/tags/%E7%9B%B8%E5%A3%B0%E6%96%87%E6%9C%AC/">相声文本</a>&nbsp;
                     </li>
                 
             </ul>
@@ -563,56 +558,188 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>众所周知，目前市面上有几个比较主流的、用来做配置文件的标记语言。在js环境中，用json比较多；在java环境中主要用的是xml，而python环境中用的则是yaml。由于组里的项目在要求我们“能通过yaml文件来自定义配置”，因此就顺便学了一下yaml的使用，同时也摸索了一下比较好用的使用方式。虽然不一定可能是python官方推荐的最佳实践，但是确实在平常写代码的时候比较好用。</p>
-<h2 id="教程正文"><a href="#教程正文" class="headerlink" title="教程正文"></a>教程正文</h2><h3 id="yaml语言的结构"><a href="#yaml语言的结构" class="headerlink" title="yaml语言的结构"></a>yaml语言的结构</h3><p>yaml是一个标记语言，我们来看菜鸟教程的介绍：</p>
-<blockquote>
-<p>YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。</p>
-<p>YAML 的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等数据形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。</p>
-</blockquote>
-<p>这种话其实对平常写过代码的人来说没什么用处。所以我会用我认为比较快的方式直接给大家直观的展示yaml：</p>
-<div class="code-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个用来示例的json结构</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;foo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bar&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;a&quot;</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;b&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;c&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;arr&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;str0&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;str1&quot;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>我们把这个结构转换成yaml，就是下面这个样子：</p>
-<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个json对应的yaml</span></span><br><span class="line"><span class="attr">foo:</span> <span class="string">&#x27;bar&#x27;</span></span><br><span class="line"><span class="attr">a:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">b:</span></span><br><span class="line">    <span class="attr">c:</span> <span class="string">&quot;c&quot;</span></span><br><span class="line">    <span class="attr">arr:</span> [</span><br><span class="line">        <span class="string">&quot;str0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;str1&quot;</span>]</span><br></pre></td></tr></table></figure></div>
-
-<p><a class="link"   target="_blank" rel="noopener" href="https://yamlchecker.com/" >Yaml Checker<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>这个网站可以查看你输入的yaml是否合法。</p>
-<h3 id="用python读取yaml文件"><a href="#用python读取yaml文件" class="headerlink" title="用python读取yaml文件"></a>用python读取yaml文件</h3><p>直接在你的项目中新建一个yaml文件作为你的配置文件，例如<code>config.yaml</code>，作为教程，内容就直接用上面的复制过来就好了。那么如何在本地读取呢？我们需要一个第三方库（是的，主要在python中用的文件格式，python标准库中居然没有），它的pip包名叫做<code>pyyaml</code>。可以在任何支持的包管理器和虚拟环境中进行安装。不过注意，在真正的python文件中，我们不能直接用<code>pyyaml</code>这个名称，而是直接<code>import yaml</code>就好。下面是一份示例的读取代码。</p>
-<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config_loader.py</span></span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line">PROJECT_ROOT = Path()<span class="comment"># 你的项目根目录，一个Path类别的变量</span></span><br><span class="line">CONFIG_PATH = PROJECT_ROOT / <span class="string">&quot;config.yaml&quot;</span> <span class="comment">#配置文件名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line"><span class="keyword">with</span> CONFIG_PATH.<span class="built_in">open</span>(<span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    CONFIG = yaml.safe_load(f)</span><br></pre></td></tr></table></figure></div>
-
-<p>接下来，在你需要引用配置的地方，引用<code>CONFIG</code>这个变量就可以了，例如<code>CONFIG[&#39;b&#39;][&#39;c&#39;]</code>。</p>
-<h3 id="如何实现代码补全"><a href="#如何实现代码补全" class="headerlink" title="如何实现代码补全"></a>如何实现代码补全</h3><p>如果直接这样使用的话，那么我们是很难在vscode或者其他IDE中得到补全或者提示之类的高级功能的，如果想要这些的话，我们必须要让<code>CONFIG</code>继承自<code>TypedDict</code>类，这样就可以做到直接使用类型补全了。</p>
-<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config_dict.py</span></span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> TypedDict</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只要出现了嵌套，就必须要再注册一个类</span></span><br><span class="line"><span class="comment"># 前面加上_就代表是一个内部类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_B</span>(<span class="title class_ inherited__">TypedDict</span>):</span><br><span class="line">    c: <span class="built_in">str</span></span><br><span class="line">    arr: <span class="built_in">list</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConfigDict</span>(<span class="title class_ inherited__">TypedDict</span>):</span><br><span class="line">    foo: <span class="built_in">str</span></span><br><span class="line">    a: <span class="built_in">int</span></span><br><span class="line">    b: _B</span><br></pre></td></tr></table></figure></div>
-
-<p>对应的，在<code>config_loader</code>中，也要指定<code>CONFIG</code>的类型为<code>ConfigDict</code>。这样的话，在vscode中就可以直接使用代码补全了。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/%E4%BB%A3%E7%A0%81/%E5%9C%A8python%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8yaml%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E6%8E%A8%E8%8D%90%E6%96%B9%E5%BC%8F/1.png"
-                      alt="就是这样的效果"
-                ></p>
-<h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><blockquote>
-<p>为什么要用yaml，它相比于json的优势在哪里？</p>
-</blockquote>
-<p>Kimi给出的回答，整合之后答案如下：</p>
-<ul>
-<li>人类可读性强，毕竟少了很多大括号和引号，而且数据通过缩进展示，更加直观</li>
-<li>原生支持注释，而正儿八经的原版JSON规范其实按理说是不支持注释的（虽然很多人都会写）</li>
-<li>类型更多，原生支持bool、日期等类型</li>
-<li>支持锚点和引用，可以避免重复配置</li>
+			<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>甲 感谢大伙吧</p>
+<p>乙 感谢各位</p>
+<p>甲 一上台呢，先给大伙做一个自我介绍</p>
+<p>乙 嗯</p>
+<p>甲 我是来自计算机学院的包包</p>
+<p>乙 是他</p>
+<p>甲 旁边这位呢，是xx学院的xx</p>
+<p>乙 是我</p>
+<p>甲 很高兴啊，能够来到研究生文化艺术节的舞台</p>
+<p>乙 是啊</p>
+<p>甲 为什么咱们要来呢</p>
+<p>乙 您给说说</p>
+<p>甲 因为啊，我们哥俩发现</p>
+<p>乙 发现什么</p>
+<p>甲 我发现我们俩在学术界不能有什么成就了</p>
+<p>乙 为什么呢</p>
+<p>甲 现在硕士博士那么多，咱们很难出名啊</p>
+<p>乙 那你也不能就这么放弃啊</p>
+<p>甲 所以我发现</p>
+<p>乙 发现什么</p>
+<p>甲 要想成功，得剑走偏锋</p>
+<p>乙 怎么个剑走偏锋法</p>
+<p>甲 让各位，让观众能记住咱们</p>
+<p>乙 啊 </p>
+<p>甲 出本书</p>
+<p>乙 不是，这不是所有人都能出书啊</p>
+<p>甲 怎么呢 </p>
+<p>乙 你出书都得是有身份，有地位，或者是有你特殊的梦想才能出书呢</p>
+<p>甲 出书不管行不行，今天你想出就出，没有限制</p>
+<p>乙 那可以啊</p>
+<p>甲 那咱们俩出本书你同意吗</p>
+<p>乙 同意啊 </p>
+<p>甲 那这样，你要同意出书的话</p>
+<p>乙 怎么样？</p>
+<p>甲 你先给我转七万块钱</p>
+<p>乙 怎么你得绝症了？感情出的是病危通知书 </p>
+<p>甲 出书得花钱呢，一共是十万块 </p>
+<p>乙 一共多少钱？</p>
+<p>甲 十万，一共十万，对</p>
+<p>乙 我出七万，你呢？</p>
+<p>甲 我三万呢</p>
+<p>乙 凭什么我比你多？凭什么我七万，你三万？</p>
+<p>甲 三分逗，七分捧 </p>
+<p>乙 （推桌子）从现在开始，你捧哏，以后都你捧哏</p>
+<p>甲 我捧的没您好 </p>
+<p>乙 对，你出的也比我少 这时候你想起三分到七分捧了</p>
+<p>甲 那您这话什么意思？</p>
+<p>乙要是出，一人一半 </p>
+<p>甲 一人五万 </p>
+<p>乙 诶 </p>
+<p>甲 成交 </p>
+<p>乙 那咱的书在哪里呢</p>
+<p>甲 我爱看他这个嘴脸（掏书和笔）</p>
+<p>乙 不是怎么意思，现在就写着呢 </p>
+<p>甲 干嘛来了 </p>
+<p>乙 哎呦，我就喜欢这个效率 </p>
+<p>甲 哎，出书首先得有个名字，对吧 </p>
+<p>乙 书名很重要 </p>
+<p>甲 名字我早就想好了</p>
+<p>乙 那咱这书叫什么名字 </p>
+<p>甲 就叫《成功没有捷径》</p>
+<p>乙 好</p>
+<p>甲 但需要不断努力，不断进取，不知疲倦，不知辛苦，发奋图强，才能开辟一条有理想有梦想有希望的成功之路</p>
+<p>乙 哈哈，哈哈，不夸张的说</p>
+<p>甲 怎么样 </p>
+<p>乙 您这书名，比我寿命都长。你懂什么叫书名吗，title你懂吗title，你是个高度概括。我给你起吧，这书名就叫，成功没有捷径 </p>
+<p>甲 可以这书名可以，那咱们开始吧 </p>
+<p>乙 开始吧 </p>
+<p>甲 （拿笔，乐）</p>
+<p>乙 想想</p>
+<p>甲 包包</p>
+<p>乙 先写他 </p>
+<p>甲 是大伙熟知的一对相声演员 </p>
+<p>乙 没提我名字，就一对啊？</p>
+<p>甲 这相声搭档能不提你吗别着急</p>
+<p>乙 不是你可得有我 </p>
+<p>甲 （拿笔，乐）</p>
+<p>乙 你写啊，乐什么</p>
+<p>甲 控制不住 </p>
+<p>乙 快写吧 </p>
+<p>甲 包包是一名优秀的青年相声表演艺术家 </p>
+<p>乙 这玩意一出书，都成家了 </p>
+<p>甲 包包自幼学习相声艺术，深受广大观众的好评。观众都说，听了包包的相声，神清气爽，心旷神怡，清热败火，浑身舒畅 </p>
+<p>乙 你小名叫泻药 </p>
+<p>甲 你就别跟着拆台了。如此的造诣，和他少年时期的经历是分不开的 </p>
+<p>乙 开始讲历史了</p>
+<p>甲 少年时代的包包是一个乐于助人、心地善良的好孩子 </p>
+<p>乙 一般都这么形容小孩 </p>
+<p>甲 有一次老师告诉他，要拾金不昧，不要将捡到的东西占为己有。于是第二天，他就将自己捡到的三十多部手机和一百多个钱包，都交到了老师手里 </p>
+<p>乙 老师又把你交到了警察手里 </p>
+<p>甲 怎么呢 </p>
+<p>乙 四个小偷都没你能干 </p>
+<p>甲 你能不能不要搅和啊 （拿笔，乐）</p>
+<p>乙 你别老乐着 写点正经的 </p>
+<p>甲 包包热爱公益，在校期间积极参加课外活动 </p>
+<p>乙 不错</p>
+<p>甲 他曾经清过积雪、扶过老头、斗过歹徒、端过炮楼 </p>
+<p>乙 也不知道哪个学校的课外活动是端炮楼 </p>
+<p>甲 少年时的经历培养了他不怕挫折的精神，使他克服了重重困难，最终成为了大家心目当中的单口大师</p>
+<p>乙 您先等会，你怎么单口大师啊，你俩人说相声，我呢我呢 </p>
+<p>甲 我问你，是单口相声难还是对口相声难啊？</p>
+<p>乙 当然是单口相声难了</p>
+<p>甲 对啊，我能说单口相声，就证明我克服了困难</p>
+<p>乙 你不是克服了困难，你是把我克没了</p>
+<p>甲 那我怎么写啊 </p>
+<p>乙 不是你得写我 写写写 写写写 快快快 我我我 快点 </p>
+<p>甲 行，xxx，为了弘扬相声事业呕心沥血</p>
+<p>乙 写得好 </p>
+<p>甲 他，清白做人 </p>
+<p>乙 人品</p>
+<p>甲 踏实做事 </p>
+<p>乙 实干 </p>
+<p>甲 艰苦奋斗、专心致志 </p>
+<p>乙 嗯</p>
+<p>甲 他的一生，是传奇的一生，是精彩的一生，他的一生值得我们铭记。让我们向xxx先生深鞠一躬</p>
+<p>乙 我掐死你 </p>
+<p>甲 吓我一跳</p>
+<p>乙 你给我写死了 </p>
+<p>甲 那咋了</p>
+<p>乙 你不能给我写死 </p>
+<p>甲 行，不写死，不写死。xxx，男，xx省xx市人</p>
+<p>乙 没错</p>
+<p>甲 身高（看）中等， 体态（看） 臃肿，相貌（看）平平 </p>
+<p>乙 你有好词没有 </p>
+<p>甲 有啊，无明显生理缺陷</p>
+<p>乙 这回你倒是没给我写死，你给我写丢了</p>
+<p>甲 你这多完美啊 </p>
+<p>乙 你给我弄点好词，你出书了你不得是艺术家</p>
+<p>甲 行，那就艺术家。青年相声大师xxx</p>
+<p>乙 好 </p>
+<p>甲 相声天赋极高 </p>
+<p>乙 对 </p>
+<p>甲 幼年时展露出的才华，令他的父亲都自叹不如 </p>
+<p>乙 没错</p>
+<p>甲 最终，他父亲与他结为异姓兄弟</p>
+<p>乙 我爸是多瞧不起我，连姓他的姓他都不乐意。你写点好的</p>
+<p>甲 后面有好的啊。xxx多年来始终坚持自己的相声之路，克服了重重困难。他曾因酒后驾车，锒铛入狱，出狱后他坚持说相声；他曾因故意伤人，锒铛入狱，出狱后他坚持说相声；又因为非法营运，锒铛入狱，出狱后他坚持说相声，后又因电信诈骗，锒铛入狱，出狱后他坚持说相声 </p>
+<p>乙 我这不是坚持说相声，我这就坚持锒铛了</p>
+<p>甲 还有别的优点呢。为了增强自己的舞台经验，每到深夜，他都闯进附近居民家中，强行为居民说相声，也因此经常遭到附近居民的殴打</p>
+<p>乙 对，因为又快进去了 </p>
+<p>甲 他利用课余时间创作相声 </p>
+<p>乙 这要安全一些，不用锒铛了</p>
+<p>甲 经过他的不断努力，他创作了一千五百余段相声 </p>
+<p>乙 可以说高产了 </p>
+<p>甲 并把他们装订成册，塞进了附近的居民家中 </p>
+<p>乙 你先等一等，一千五百余段相声，得（比）这么厚，多大的门缝我能给塞进去</p>
+<p>甲 一张一张塞啊</p>
+<p>乙 我发小广告去了啊，一张一张塞 </p>
+<p>甲 我这不夸张吗</p>
+<p>乙 我算看出来了，你没憋什么好屁，我自己写吧（抢书和笔）</p>
+<p>甲 你写不出来你知道吗</p>
+<p>乙 你来你看看（拿笔）我现在理解你为什么一拿笔就那么快乐了。相声演员xxx是一名让观众掏心窝子的演员 </p>
+<p>甲 他们没剌你肺啊 </p>
+<p>乙 这个词好，我记一下，是让观众掏心掏肺的相声演员。每当观众提到他的人品，观众们会说xxx是个好人，每当观众提起他的相声，观众们会说xxx是个好人，每当观众提到他的长相，大家会说 xxx 是个好人 </p>
+<p>甲 他的一生，是传奇的一生，是精彩的一生，让我们向xxx先生，二鞠躬 </p>
+<p>乙 你怎么又把我弄死了 </p>
+<p>甲 废话，我要不给你鞠死，就你写的词得让观众打死（抢书和笔），你这词也太水了，就好人好人，查重率高达百分之三百，还得是我来写吧</p>
+<p>乙 可先说好，你写可以，你得有我</p>
+<p>甲 行行行，肯定有你。相声表演艺术家包包，每天清晨都会去公园喊嗓子、背贯口，相声表演艺术家包包，每天深夜都会用心地去创作新相声</p>
+<p>乙 写我写我 </p>
+<p>甲 写你，顺便，把xxx的词也写出来 </p>
+<p>乙 我现在成顺便了是吧 （抢书，没抢到笔）你给不给</p>
+<p>甲 不给</p>
+<p>乙 给不给</p>
+<p>甲 不给</p>
+<p>乙（自己掏出一根笔，同时甲也要再掏出一本书来）读两年研了我怎么可能连笔都没有。经过多年的努力，xxx终于成为了深受观众喜爱的相声演员……不是你这还有一本呢啊？</p>
+<p>甲 （狂笑） idea是我出的，我想怎么写就怎么写</p>
+<p>乙 那我不干了，不写了</p>
+<p>甲 不写能行吗 我钱都交到出版社了</p>
+<p>乙 哦想出来单干啊，凭什么</p>
+<p>甲 出书这建议是我提的</p>
+<p>乙 那我还出钱了呢</p>
+<p>甲 出书挣钱你还分钱了呢</p>
+<p>乙 我还真就告诉你，今天我宁可一分钱不要，我直接不干了，我让你五万白扔！</p>
+<p>甲 白扔？白扔不了 蜡烛照片摆当中 我再给你三鞠躬</p>
+<p>乙 去你的吧</p>
+<h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://v.douyin.com/TwbL-CJTBt0/" >【抖音】冯照洋、杨鹤通（原作者北展演出）<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://v.douyin.com/WOcoVmfzLSg/" >【抖音】包涵、李成林（我在2025研究生文化艺术节复赛上的演出）<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 </ul>
-<p>你让我总结，那我的总结就是yaml比json功能更多，更加高级。</p>
-<blockquote>
-<p>什么是TypedDict，为什么要用它？</p>
-</blockquote>
-<p>Python3.8起，标准库<code>typing</code>引入了这个类型，本质上是对一个<code>dict</code>的加强版。让你在运行的时候，虽然拿到的是普通的dict，但是能够给键名和值的类型都加上静态检查，这样就可以把一个<code>dict</code>当成类似于C语言的<code>struct</code>来用。至于为什么是基于<code>dict</code>，因为如果你直接写类的话，很多场景（例如使用JSON）就不是很方便用了。而普通的<code>dict</code>又太松散了，类似于JavaScript中的<code>Object</code>，很难起到任何的类型检查的作用，成为了滋生bug的温床。因此使用TypedDict，成为了既想要灵活，又想要类型提示的一个简单方案。</p>
-<blockquote>
-<p>为什么包名叫pyyaml，使用的时候引入的却是yaml？</p>
-</blockquote>
-<p>因为包名不等于import的名字，pyyaml这个包的代码根目录名字就叫yaml。类似的还有<code>Pillow</code>（引入的是<code>PIL</code>）、<code>BeautifulSoup4</code>（引入的是<code>bs4</code>）等。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>之前在组里的项目中就有这一个要求，因此就直接写下来，以后在写其他的python项目的时候，也可以把这个最佳实践直接拿来用，这样的话就可以很好的去耦合，不用再天天去文件里改常量了。</p>
-<h2 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h2><ul>
-<li>2025.12.25 发布第一稿</li>
-</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在比赛的时候，学校研究生会那边的老师跟我们说这个节目很适合上学校的元旦晚会，但是我的搭档说上这种场合费力不讨好，对奖学金也没有什么帮助，因此跟我说如果决赛的时候没有获得一等奖就不去了，我也答应了他。最后我们拿了二等奖，毕竟这种语言类节目肯定在艺术性上是不如隔壁川剧变脸的。</p>
+<p>在最开始的时候，我们就商量说原作者那个活最后一小块不怎么好，有一种玩子母哏和白云黑土的意思，但是感觉没有玩起来，没什么效果。但是你让我来改我肯定是做不到的，因此我就改成了现在这个样子，事实证明这么一改演出时常就控制了，确实很适合晚会上表演。</p>
 
 		</div>
 
@@ -620,18 +747,18 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 在python项目中使用yaml作为配置文件的推荐方式</li>
+        <li><strong>标题:</strong> 书剑恩仇录</li>
         <li><strong>作者:</strong> Baobao0824</li>
         <li><strong>创建于
-                :</strong> 2025-12-25 15:15:25</li>
+                :</strong> 2025-12-11 08:55:27</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-01-18 10:08:04
+                    :</strong> 2026-01-18 19:54:33
             </li>
         
         <li>
-            <strong>链接:</strong> https://blog.baobao0824.top/代码/在python项目中使用yaml作为配置文件的推荐方式/
+            <strong>链接:</strong> https://blog.baobao0824.top/相声文本/书剑恩仇录/
         </li>
         <li>
             <strong>
@@ -653,11 +780,7 @@
 		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/%E4%BB%A3%E7%A0%81/">#代码</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/python/">#python</a>&nbsp;
+				<a href="/tags/%E7%9B%B8%E5%A3%B0%E6%96%87%E6%9C%AC/">#相声文本</a>&nbsp;
 			</li>
 			
 		</ul>
@@ -669,29 +792,17 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/%E4%BB%A3%E7%A0%81/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%EF%BC%88PY%EF%BC%89/">
+				<a class="prev" rel="prev" href="/%E7%9B%B8%E5%A3%B0%E6%96%87%E6%9C%AC/%E7%A7%91%E5%AD%A6%E8%84%B1%E5%8F%A3%E7%A7%80/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">阿里云OSS对象存储入门（PY）</span>
+						<span class="post-nav-title-item truncate max-w-48">科学脱口秀</span>
 						<span class="post-nav-item">上一篇</span>
 					</span>
 				</a>
 			</div>
 			
-			
-			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/%E4%BB%A3%E7%A0%81/%E5%88%A9%E7%94%A8iPad%E7%BB%99Mac%E5%88%9B%E9%80%A0%E4%B8%80%E5%9D%97%E5%89%AF%E5%B1%8F/">
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">利用iPad给Mac创造一块副屏</span>
-						<span class="post-nav-item">下一篇</span>
-					</span>
-					<span class="right arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-right"></i>
-					</span>
-				</a>
-			</div>
 			
 		</div>
 		
@@ -705,8 +816,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">在python项目中使用yaml作为配置文件的推荐方式</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E7%A8%8B%E6%AD%A3%E6%96%87"><span class="nav-text">教程正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yaml%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text">yaml语言的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8python%E8%AF%BB%E5%8F%96yaml%E6%96%87%E4%BB%B6"><span class="nav-text">用python读取yaml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8"><span class="nav-text">如何实现代码补全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-A"><span class="nav-text">Q&amp;A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95"><span class="nav-text">更新记录</span></a></li></ol>
+		<div class="page-title">书剑恩仇录</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%A7%86%E9%A2%91"><span class="nav-text">参考视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol>
 
 	</div>
 </div>
@@ -733,7 +844,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 11 篇文章
+                        共撰写了 12 篇文章
                     </span>
                     
                 </p>
