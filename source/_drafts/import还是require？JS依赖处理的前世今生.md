@@ -112,5 +112,7 @@ Webpack并不是为了解决上文中问题而生的，但是它确实是最广�
 最初的webpack只是想做一个把node使用的Commonjs库引入浏览器中的构建工具，这样浏览器就可以使用很多npm库了，同时也能反过来促进前端库的开发。最早的Webpack只做一件事：在编译阶段把所有源码包进一个自执行函数，内部实现一套微型 CommonJS 运行时，最后生成一个（或多个）纯 ES5 的 bundle.js，用传统 <script src="bundle.js"></script> 引入即可跑在浏览器上。
 
 
+
+
 ## 参考链接
 + [^1]: 一篇StarkOverFlow的文章回答给出了这段示例代码 https://stackoverflow.com/questions/944273/how-to-declare-a-global-variable-in-a-js-file
