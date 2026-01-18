@@ -1,6 +1,6 @@
 ---
 title: 阿里云OSS对象存储入门（PY）
-tags: [代码]
+tags: [代码, python]
 date: 2026-01-06 20:04:08
 categories: 代码
 ---

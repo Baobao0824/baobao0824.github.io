@@ -1,6 +1,6 @@
 ---
 title: import还是require？JS模块化的前世今生
-tags: [代码]
+tags: [代码, 前端]
 categories: 代码
 ---
 
