@@ -8,11 +8,15 @@ categories: [块叠BlockStack]
 
 ## 写在前面
 
+什么是块叠？就是从他人优秀的知识总结中搬出一块来，叠到自己的技术栈上；Put a block of knowledge onto your own coding stack。通过一篇文章（视频、书籍等），发现自己技术栈中的空缺，并发散开去，作最大化的填补。遵循原文顺序、最佳实践优先、扩展思维含量，这就是BlockStack的理念与追求。每月的1号和15号，我都会发布一期，希望能尽可能聊得彻底、翔实。
+
 这是一篇个人博客中的技术文章，他主要讲解了在前端技术中如何进行数据的存储，主要是Cookie、LocalStorage和sessionStorage，以及他们三个的特性和使用场景。这是一篇比较基础的、比较适合啃的文章，第一期块叠就找他了。
 
 ## 一、存储机制的本质差异
 
 首先是Cookie，它出现的最早，本质上是一个键值对。由于HTTP协议是无状态的，收到HTTP请求的服务器并不知道收到的请求来自什么用户，所以就需要客户端有个标记，因此Cookie就应运而生了。一般来说第一次访问某个网站的话，http请求头中是不带Cookie字段的，但是假如服务器需要cookie的话，那它就会在返回的时候带上`Set-Cookie`字段。
+
+**带上`Set-Cookie`字段的请求头如下所示。**
 
 ```text
 HTTP/1.1 200 OK
@@ -23,6 +27,8 @@ Set-Cookie: theme=dark; Max-Age=2592000; Path=/; Secure
 
 一个Set-Cookie对应一个键值对，后续跟的是一些属性信息。同时浏览器接收到这个请求之后，就会将cookie放在自己的Cookie数据库下（各浏览器的实现不同），后续同站点下，客户端再发其二http请求的话，就会在请求头中携带相应的Cookie。
 
+**客户端携带Cookie的请求头如下所示。**
+
 ```text
 GET /profile HTTP/1.1
 Host: example.com
@@ -32,37 +38,7 @@ Cookie: sessionid=abc123; theme=dark
 
 最后是sessionStorage，它也是Web Storage API的一部分，但是它并不进行持久化存储，只在当前标签页有效，一旦标签页被关闭，数据就会被清除，也使得它更适合用于存储一些非常临时的状态。
 
-## 二、详细特征对比
-
-### 可用容量大小
-
-+ Cookie：一条Cookie（带属性的一个键值对）容量为4kb，每个域名有20条的容量限制。
-+ localStorage：5-10MB（具体大小由浏览器决定），对于客户端就足够用了。
-+ SessionStorage：同上，也是50-10MB
-
-### 数据生命周期
-
-Cookie：
-
-+ 可以设置过期时间（`Expires`或`Max-Age`，现在后者优先级更高）。
-+ 如果不设置过期时间，则为会话Cookie，关闭浏览器后失效。
-+ 设置了过期时间的Cookie会一直存在，直到过期或被手动删除。
-
-localStorage：
-
-+ 数据永久存储，除非用户手动清除或通过代码删除。
-+ 不会因为关闭浏览器而丢失。
-+ 不会因为重启电脑而丢失。
-
-sessionStorage：
-
-+ 数据只在当前标签页有效。
-+ 关闭标签页后数据立即清除。
-+ 刷新页面不会清除数据。
-+ 如果在同一个标签页内跳转或刷新，数据会保留。
-+ 复制新的标签页，不会将sessionStorage带过去。
-
-## （扩展）cookie的属性介绍
+## **cookie的属性介绍**
 
 一条 Cookie 由“名/值”和 7 个可选属性组成，浏览器在设置（Set-Cookie 响应头 或 `document.cookie=`）时逐条解析，而读取的时候只能读取到键和值，属性是不能获取的。下面介绍一下一个Cookie拥有的所有属性
 
@@ -96,22 +72,49 @@ Secure：
 
 布尔属性，出现则为True，如果为True则指示浏览器，只在HTTPS连接中才发送该Cookie，防止明文传输被盗。使用的时候直接添加`secure`即可。
 
-HttpOnly  
+HttpOnly：
+
 同上，也是布尔属性，若为True则指示浏览器，禁止JS通过`document.cookie`变量对其进行读写，降低泄露风险，使用的时候直接添加`httponly`即可。
 
-1. SameSite（RFC 6265bis，现代浏览器已支持）  
-   防 CSRF 与跨站定时攻击。可取：  
-   - `Strict`：完全禁止跨站发送（包括点击外链）；  
-   - `Lax`：默认值，允许安全 HTTP 方法（GET、HEAD）的顶层导航带 Cookie；  
-   - `None`：允许跨站，但必须同时加 `Secure`（即仅 HTTPS）。  
-   例：`samesite=lax`
+SameSite：
 
-2. Priority（Chrome 私有扩展）  
-   低、中、高。当浏览器 Cookie 数量达到上限时，先踢掉低优先级。  
-   例：`priority=high`
++ 跨站点请求发送的设置。提供了针对CSRF（跨站点请求伪造攻击）的保护。有三个可选值：`Strict`、`Lax`和`None`。
++ 如果使用Strict，那么Cookie会仅发送到它的来源站点。
++ Lax比Strict的范围更广一些，可以发送到表单或者get请求到的外部站点中，也是目前主流浏览器的默认设置。
++ 而None就不会管是否同站点了，但是你必须保证你的上下文是否安全，例如使用https，否则浏览器会强制将其视为Lax
++ 不同浏览器可能对这一特性的支持有差别，使用之前可以查询一下。
 
-快速记忆口诀：  
-“值随名，过期分两种（Expires/Max-Age），域路径管范围，Secure 只 HTTPS，HttpOnly 防脚本，SameSite 挡 CSRF，Priority 给 Chrome 做清理。”
+除此之外还有一些浏览器独有的属性，由于适用的较少，在此就不一一列举了。
+
+## 二、详细特征对比
+
+### 可用容量大小
+
++ Cookie：一条Cookie（带属性的一个键值对）容量为4kb，每个域名有20条的容量限制。
++ localStorage：5-10MB（具体大小由浏览器决定），对于客户端就足够用了。
++ SessionStorage：同上，也是50-10MB
+
+### 数据生命周期
+
+Cookie：
+
++ 可以设置过期时间（`Expires`或`Max-Age`，现在后者优先级更高）。
++ 如果不设置过期时间，则为会话Cookie，关闭浏览器后失效。
++ 设置了过期时间的Cookie会一直存在，直到过期或被手动删除。
+
+localStorage：
+
++ 数据永久存储，除非用户手动清除或通过代码删除。
++ 不会因为关闭浏览器而丢失。
++ 不会因为重启电脑而丢失。
+
+sessionStorage：
+
++ 数据只在当前标签页有效。
++ 关闭标签页后数据立即清除。
++ 刷新页面不会清除数据。
++ 如果在同一个标签页内跳转或刷新，数据会保留。
++ 复制新的标签页，不会将sessionStorage带过去。
 
 ### 数据访问方式
 
@@ -127,19 +130,134 @@ document.cookie = "favorite_food=oreo";
 ```
 是的，我们每次只能获取到所有的cookie，如果需要从中筛选，就需要自己手动处理（写正则或者用其他的字符串函数），或者手动找一些能便于处理的库（MDN文档中提供了一个示例）。
 
-那么还有一个新的问题：如何删除一个Cookie？还记得之前提到的`Max-Age`吗，只要设置`expire`或者`Max-age`为0或者1970就可以。例如下面的代码：
+那么还有一个新的问题：如何删除一个Cookie？很简单让他过期就可以了。例如下面的代码：
 
 ```js
-// 删除 Cookie
+// 利用expires的时间删除cookie，只要比现在早就行
 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+// 利用max-age为0来删除cookie
+document.cookie = 'username=; max-age=0; path=/;';
 ```
 
+和cookie相比，localStorage和sessionStorage的访问就非常简单了，大家一看就懂。这里直接给出原文提供的示例代码，你会发现两边除了标识符不同，其余的就是完全一致。
+
+```js
+// localStorage
+// 设置数据
+localStorage.setItem('username', 'john');
+// 读取数据
+const username = localStorage.getItem('username');
+// 删除数据
+localStorage.removeItem('username');
+// 清空所有数据
+localStorage.clear();
+
+// sessionStorage
+// 设置数据
+sessionStorage.setItem('username', 'john');
+// 读取数据
+const username = sessionStorage.getItem('username');
+// 删除数据
+sessionStorage.removeItem('username');
+// 清空所有数据
+sessionStorage.clear();
+```
+
+### 作用域和安全性
+
+Cookies的安全性和作用域，我们在上面讲解Cookie属性的时候已经提到了，它的作用域和安全性都是靠自己的配置来决定的，这里不再赘述。
+
+localStorage的作用域不能通过自己设定，而是由浏览器的同源策略所主导，只有相同协议、域名和端口的页面才能访问同一个localStorage存储空间（子域名也不行）。但由于数据均以铭文形式存储，所有的js代码都可以读取和修改里面的数据，因此不适合存储敏感信息。而同源的所有页面都能获取到，也因此适合存储用户偏好信息。
+
+sessionStorage由于限制了单个标签页，因此如果一个标签页被攻击了，不会影响同一个域名下的其他页面，同时由于只能在创建它的标签页中访问，因此更适合存储表单的临时输入（刷新之后、同一标签页中跳转，数据还在）同时也不要存储一些敏感信息。
+
+## 三、典型使用场景
+
+### Cookie的典型应用场景
+
+Cookie的最典型使用场景就是用户认证和会话管理了，用户成功登录后，系统会生成一个令牌存在cookie中，每次用户在发送请求的时候都会携带，服务器就能通过这个令牌来识别用户身份，就不用再重新登录了。最主要的优势在于，cookie可以设置`httpOnly`属性，来保证js代码获取不到令牌，大幅度提高了安全性。
+
+当然Cookie也可以存储用户的个性化设置，例如用户选择某种语言后，偏好会被存入Cookie，这样服务器接收到之后可以直接在后续业务逻辑中复用，不需要用户反复设置。**事实上，很多现代的框架会先读Cookie，再把值写回用户上下文，只读取一次Cookie即可，不会每个页面都去Cookie里找。**
+
+假如你想实现“不登录也能将商品添加至购物车，登录后自动将之前的商品合并”，那么你也可以使用Cookie。**在登录之后，后端会将Cookie与账户中已有的数据合并，同时删除当前的Cookie。**
+
+### localStorage的典型应用场景
+
+localStorage最适合的就是准出应当是个性化配置，因为在浏览器本地存储，不用增加网络开销，而且可以永久保留。**但是除非在服务器那边写了对应的逻辑，否则在不同设备上，这些设置是不能恢复的，这一点要注意。**
+
+现代Web应用经常要从服务器获取大量数据，每次都通过网络请求获取，既增加了服务器的压力，又影响了用户体验。因此一些缓存就可以通过localStorage来完成，特别适合更新频率低、加载速度要求高的场合。
+
+同时，在填写大规模表单的时候，如果由于网络中断或页面刷新等原因，导致整个表单都需要重填的话，对用户的体验是相当不友好的。因此可以将这部分内容存储在localStorage中，用户可以随时中断填写过程，并过段时间继续完成而不用担心数据丢失。
+
+### sessionStorage的典型应用场景
+
+有一些状态，例如滚动位置、展开的菜单状态、选中的标签页等，这种信息一般只在当前页有效，但是如果在页面内跳转再回来之后还想保留，那这个就很方便了。比如，用户通过链接在当前标签页进入其他页面，然后用浏览器的后退恢复到原来的页面，我们可以用`window.scrollY`属性来获取垂直滚动位置，存储到`sessionStorage`中，然后在页面加载的时候读取，从而恢复记录的滚动位置。
+
+```js
+// 保存当前页面的滚动位置
+function saveScrollPosition() {
+    sessionStorage.setItem('scroll_position', window.scrollY.toString());
+}
+
+// 恢复滚动位置
+function restoreScrollPosition() {
+    const position = sessionStorage.getItem('scroll_position');
+    if (position) {
+        window.scrollTo(0, parseInt(position));
+    }
+}
+```
+
+如果一个表单非常的复杂，用户需要在多个页面中分步骤完成填写，使用sessionStorage可以让用户轻松在各个步骤中间跳转，而不会损失填写的内容。或者记录用户的临时操作、遇到了什么问题，便于开发者进行debug。
+
+```js
+// 记录用户的临时操作
+function logUserAction(action, data) {
+    const actions = JSON.parse(sessionStorage.getItem('user_actions') || '[]');
+    actions.push({
+        action: action,
+        data: data,
+        timestamp: Date.now()
+    });
+    sessionStorage.setItem('user_actions', JSON.stringify(actions));
+}
+```
+
+## **浏览器缓存简介**
+
+HTTP报文是具有缓存标识的。当浏览器第一次向服务器发起该请求之后拿到请求结果，会根据响应报文中HTTP头的缓存标识，来决定是否缓存结果。之后浏览器每次发起请求之前，都会先在浏览器缓存中查找该请求的结果以及缓存标识，如果查找成功的话，就直接利用浏览器中现成的了。
 
 
 
+http缓存又分为强缓存和协商缓存。
 
+## 四、与浏览器缓存策略的区别
+
+浏览器缓存策略主要针对的是静态资源，例如HTML文件、CSS样式、js脚本和图片字体之类的，这类资源通常不会频繁变化；而上述的这三种前端存储技术，它们本质上存储的是用户的个性化数据、应用状态和用户行为记录等，二者存储的内容不同。
+
+缓存的声明周期由服务器控制，通过HTTP响应头设置时间，当缓存过期时，浏览器会自动向服务器请求新的资源，用户一般感知不到缓存的存在，而本地的三种存储方式是可以使用js代码修改的，**两边都是由开发者控制的，都需要开发者来管理过期时间和进行维护。**
+
+
+## **这三者与Session的关系**
+
+一般来讲，在很多前端技术文章中，我们都会看到Session和Cookie相互对立来描述的场景，似乎和Cookie对应的技术就是Session，还可能会有人把它和sessionStorage搞混，正好我也想到这个问题了，所以打算趁机把
+
+
+## 总结
+
+通过上文的分析，我们对 sessionStorage、localStorage 和 cookie 这三种前端存储技术有了基本的认识。它们虽然都能在浏览器中存储数据，但各自有着独特的特性和适用场景。
+
+在实际开发中，我们应该根据数据的特点、安全需求和性能要求来选择合适的存储方案。很多时候，一个应用会同时使用多种存储技术，每种技术负责不同的数据存储需求。
 
 ## 参考资料
 
 + [HTTP Cookie - HTTP | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Cookies)
 + [Document.cookie - Web API | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
++ [Difference Between Local Storage, Session Storage And Cookies](https://www.geeksforgeeks.org/javascript/difference-between-local-storage-session-storage-and-cookies/)
++ [Understanding the Difference Between Cookies and Sessions](https://pandectes.io/blog/understanding-the-difference-between-cookies-and-sessions/)
++ [深入探究localStorage：提升Web应用性能和用户体验](https://www.bytezonex.com/archives/aeKLgSqw.html?region=cn)
++ [H5 sessionStorage与页面会话生命周期](https://bbs.huaweicloud.com/blogs/459264)
++ [VueJS 实现点击按钮刷新当前页面的方法与技巧探讨](https://my.oschina.net/emacs_8681101/blog/16978046)
++ [浏览器存储：Cookie、LocalStorage、SessionStorage 与 IndexedDB](https://juejin.cn/post/7471165494621667379)
++ [彻底理解浏览器的缓存机制（http缓存机制）](https://www.cnblogs.com/chengxs/p/10396066.html)
++ [HTTP 缓存 - HTTP | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Caching)
