@@ -258,6 +258,7 @@ Session和Cookie相比，最主要的优势在于所有的状态全在服务器�
 + [浏览器存储：Cookie、LocalStorage、SessionStorage 与 IndexedDB](https://juejin.cn/post/7471165494621667379)
 + [彻底理解浏览器的缓存机制（http缓存机制）](https://www.cnblogs.com/chengxs/p/10396066.html)
 + [HTTP 缓存 - HTTP | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Caching)
++ [Difference Between Session and Cookies](https://www.geeksforgeeks.org/javascript/difference-between-session-and-cookies/)
 
 ## 更新记录
 
