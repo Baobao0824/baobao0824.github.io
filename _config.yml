@@ -104,8 +104,8 @@ theme: redefine
 # 部署配置
 deploy:
   type: git
-  repo: https://github.com/Baobao0824/baobao0824.github.io.git
-  branch: gh-pages        # 用户站点可写 master，项目站点必须 gh-pages
+  repo: root@main.baobao0824.top:~/baobao-blog.git
+  branch: main        # 用户站点可写 master，项目站点必须 gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
 
 # 归档页配置
