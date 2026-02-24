@@ -22,7 +22,7 @@ date: 2026-02-01 00:00:00
 
 首先是Cookie，它出现的最早，本质上是一个键值对。由于HTTP协议是无状态的，收到HTTP请求的服务器并不知道收到的请求来自什么用户，所以就需要客户端有个标记，因此Cookie就应运而生了。一般来说第一次访问某个网站的话，http请求头中是不带Cookie字段的，但是假如服务器需要cookie的话，那它就会在返回的时候带上`Set-Cookie`字段。
 
-**带上`Set-Cookie`字段的请求头如下所示。**
+带上`Set-Cookie`字段的请求头如下所示。
 
 ```text
 HTTP/1.1 200 OK
@@ -33,7 +33,7 @@ Set-Cookie: theme=dark; Max-Age=2592000; Path=/; Secure
 
 一个Set-Cookie对应一个键值对，后续跟的是一些属性信息。同时浏览器接收到这个请求之后，就会将cookie放在自己的Cookie数据库下（各浏览器的实现不同），后续同站点下，客户端再发其二http请求的话，就会在请求头中携带相应的Cookie。
 
-**客户端携带Cookie的请求头如下所示。**
+客户端携带Cookie的请求头如下所示。
 
 ```text
 GET /profile HTTP/1.1
@@ -44,7 +44,7 @@ Cookie: sessionid=abc123; theme=dark
 
 最后是sessionStorage，它也是Web Storage API的一部分，但是它并不进行持久化存储，只在当前标签页有效，一旦标签页被关闭，数据就会被清除，也使得它更适合用于存储一些非常临时的状态。
 
-## **cookie的属性介绍**
+## cookie的属性介绍
 
 一条 Cookie 由“名/值”和 7 个可选属性组成，浏览器在设置（Set-Cookie 响应头 或 `document.cookie=`）时逐条解析，而读取的时候只能读取到键和值，属性是不能获取的。下面介绍一下一个Cookie拥有的所有属性
 
@@ -183,13 +183,13 @@ sessionStorage由于限制了单个标签页，因此如果一个标签页被攻
 
 Cookie的最典型使用场景就是用户认证和会话管理了，用户成功登录后，系统会生成一个令牌存在cookie中，每次用户在发送请求的时候都会携带，服务器就能通过这个令牌来识别用户身份，就不用再重新登录了。最主要的优势在于，cookie可以设置`httpOnly`属性，来保证js代码获取不到令牌，大幅度提高了安全性。
 
-当然Cookie也可以存储用户的个性化设置，例如用户选择某种语言后，偏好会被存入Cookie，这样服务器接收到之后可以直接在后续业务逻辑中复用，不需要用户反复设置。**事实上，很多现代的框架会先读Cookie，再把值写回用户上下文，只读取一次Cookie即可，不会每个页面都去Cookie里找。**
+当然Cookie也可以存储用户的个性化设置，例如用户选择某种语言后，偏好会被存入Cookie，这样服务器接收到之后可以直接在后续业务逻辑中复用，不需要用户反复设置。事实上，很多现代的框架会先读Cookie，再把值写回用户上下文，只读取一次Cookie即可，不会每个页面都去Cookie里找。
 
-假如你想实现“不登录也能将商品添加至购物车，登录后自动将之前的商品合并”，那么你也可以使用Cookie。**在登录之后，后端会将Cookie与账户中已有的数据合并，同时删除当前的Cookie。**
+假如你想实现“不登录也能将商品添加至购物车，登录后自动将之前的商品合并”，那么你也可以使用Cookie。在登录之后，后端会将Cookie与账户中已有的数据合并，同时删除当前的Cookie。
 
 ### localStorage的典型应用场景
 
-localStorage最适合的就是准出应当是个性化配置，因为在浏览器本地存储，不用增加网络开销，而且可以永久保留。**但是除非在服务器那边写了对应的逻辑，否则在不同设备上，这些设置是不能恢复的，这一点要注意。**
+localStorage最适合的就是准出应当是个性化配置，因为在浏览器本地存储，不用增加网络开销，而且可以永久保留。但是除非在服务器那边写了对应的逻辑，否则在不同设备上，这些设置是不能恢复的，这一点要注意。
 
 现代Web应用经常要从服务器获取大量数据，每次都通过网络请求获取，既增加了服务器的压力，又影响了用户体验。因此一些缓存就可以通过localStorage来完成，特别适合更新频率低、加载速度要求高的场合。
 
@@ -230,13 +230,13 @@ function logUserAction(action, data) {
 ```
 ## 四、与浏览器缓存策略的区别
 
-**HTTP报文是具有缓存标识的。当浏览器第一次向服务器发起该请求之后拿到请求结果，会根据响应报文中HTTP头的缓存标识，来决定是否缓存结果。之后浏览器每次发起请求之前，都会先在浏览器缓存中查找该请求的结果以及缓存标识，如果查找成功的话，就直接利用浏览器中现成的了。感觉要讲清楚浏览器缓存，需要单独开一篇文章，所以这里先放一放，等到有空单独开一期讲这个。**
+HTTP报文是具有缓存标识的。当浏览器第一次向服务器发起该请求之后拿到请求结果，会根据响应报文中HTTP头的缓存标识，来决定是否缓存结果。之后浏览器每次发起请求之前，都会先在浏览器缓存中查找该请求的结果以及缓存标识，如果查找成功的话，就直接利用浏览器中现成的了。感觉要讲清楚浏览器缓存，需要单独开一篇文章，所以这里先放一放，等到有空单独开一期讲这个。
 
 浏览器缓存策略主要针对的是静态资源，例如HTML文件、CSS样式、js脚本和图片字体之类的，这类资源通常不会频繁变化；而上述的这三种前端存储技术，它们本质上存储的是用户的个性化数据、应用状态和用户行为记录等，二者存储的内容不同。
 
-缓存的声明周期由服务器控制，通过HTTP响应头设置时间，当缓存过期时，浏览器会自动向服务器请求新的资源，用户一般感知不到缓存的存在，而本地的三种存储方式是可以使用js代码修改的，**两边都是由开发者控制的，都需要开发者来管理过期时间和进行维护。**
+缓存的声明周期由服务器控制，通过HTTP响应头设置时间，当缓存过期时，浏览器会自动向服务器请求新的资源，用户一般感知不到缓存的存在，而本地的三种存储方式是可以使用js代码修改的，两边都是由开发者控制的，都需要开发者来管理过期时间和进行维护。
 
-## **这三者与Session的关系**
+## 这三者与Session的关系
 
 一般来讲，在很多前端技术文章中，我们都会看到Session和Cookie相互对立来描述的场景，似乎和Cookie对应的技术就是Session，还可能会有人把它和sessionStorage搞混，正好我也想到这个问题了，所以打算趁机把Session也讲一下。
 
@@ -256,15 +256,15 @@ Session和Cookie相比，最主要的优势在于所有的状态全在服务器�
 
 + [HTTP Cookie - HTTP | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Cookies)
 + [Document.cookie - Web API | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
-+ [Difference Between Local Storage, Session Storage And Cookies](https://www.geeksforgeeks.org/javascript/difference-between-local-storage-session-storage-and-cookies/)
-+ [Understanding the Difference Between Cookies and Sessions](https://pandectes.io/blog/understanding-the-difference-between-cookies-and-sessions/)
-+ [深入探究localStorage：提升Web应用性能和用户体验](https://www.bytezonex.com/archives/aeKLgSqw.html?region=cn)
-+ [H5 sessionStorage与页面会话生命周期](https://bbs.huaweicloud.com/blogs/459264)
-+ [VueJS 实现点击按钮刷新当前页面的方法与技巧探讨](https://my.oschina.net/emacs_8681101/blog/16978046)
-+ [浏览器存储：Cookie、LocalStorage、SessionStorage 与 IndexedDB](https://juejin.cn/post/7471165494621667379)
-+ [彻底理解浏览器的缓存机制（http缓存机制）](https://www.cnblogs.com/chengxs/p/10396066.html)
++ [Difference Between Local Storage, Session Storage And Cookies - GeeksforGeeks](https://www.geeksforgeeks.org/javascript/difference-between-local-storage-session-storage-and-cookies/)
++ [Understanding the Difference Between Cookies and Sessions Made Simple](https://pandectes.io/blog/understanding-the-difference-between-cookies-and-sessions/)
++ [深入探究localStorage：提升Web应用性能和用户体验 - ByteZoneX社区](https://www.bytezonex.com/archives/aeKLgSqw.html?region=cn)
++ [H5 sessionStorage与页面会话生命周期-云社区-华为云](https://bbs.huaweicloud.com/blogs/459264)
++ [VueJS实现点击按钮刷新当前页面的方法与技巧探讨 - OSCHINA - 开源 × AI · 开发者生态社区](https://my.oschina.net/emacs_8681101/blog/16978046)
++ [浏览器存储：Cookie、LocalStorage、SessionStorage 与 IndexedDB在前端开发中，浏 - 掘金](https://juejin.cn/post/7471165494621667379)
++ [彻底理解浏览器的缓存机制（http缓存机制） - saucxs - 博客园](https://www.cnblogs.com/chengxs/p/10396066.html)
 + [HTTP 缓存 - HTTP | MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Caching)
-+ [Difference Between Session and Cookies](https://www.geeksforgeeks.org/javascript/difference-between-session-and-cookies/)
++ [Difference Between Session and Cookies - GeeksforGeeks](https://www.geeksforgeeks.org/javascript/difference-between-session-and-cookies/)
 
 ## 更新记录
 
