@@ -10,7 +10,7 @@ tags:
 
 ## 写在前面
 
-什么是块叠？就是从他人优秀的知识总结中搬出一块来，叠到自己的技术栈上；Put a block of knowledge onto your own coding stack。通过一篇文章（视频、书籍等），发现自己技术栈中的空缺，并发散开去，作最大化的填补。遵循原文顺序、最佳实践优先、扩展思维含量，这就是BlockStack的理念与追求。每月的1号和15号，我都会发布一期，希望能尽可能聊得彻底、翔实。
+什么是块叠？就是从他人优秀的知识总结中搬出一块来，叠到自己的技术栈上；Put a block of knowledge onto your own coding stack。通过一篇文章（视频、书籍等），发现自己技术栈中的空缺，并发散开去，作最大化的填补。遵循原文顺序、最佳实践优先、扩展思维含量，这就是BlockStack的理念与追求。每月的1号和15号，我都会（尽量）发布一期，或者完善之前的部分出一期新稿，希望能尽可能聊得彻底、翔实。
 
 这是一个系列的文章，一共有六篇。介绍了Langchain的基本使用方法。对于Agent使用越来越广泛的今天，了解这些有很重要的意义。这也是我选择这些文章作为本期BlockStack的理由。
 
@@ -122,15 +122,48 @@ messages = [
 response = model.invoke(messages)
 ```
 
-如果一个模型能够支持工具调用的话，那么我们还可以使用`ToolMessage`类来表示工具消息。等到后面的文章中我们还会再更加详细的介绍。下面我们来介绍一下模型的输出。
+如果一个模型能够支持工具调用的话，那么我们还可以使用`ToolMessage`类来表示工具消息。等到后面的文章中我们还会再更加详细的介绍。
 
-通常来讲，如果直接让模型进行输出，那么模型返回的是一个`AIMessage`类，里面包括了content等内容。不过同时，我们也可以让模型遵循特定的结构来进行输出。在Langchain中，模型的结构化输出分三种，一种是Pydantic Model，一种是TypedDict，还有就是JSON格式了。由于笔者不了解Pydantic和typeddict，因此在本文中统一使用JSON格式。
+下面我们来介绍一下模型的输出。通常来讲，如果直接让模型进行输出，那么模型返回的是一个`AIMessage`类，里面包括了content等内容。不过同时，我们也可以让模型遵循特定的结构来进行输出。在Langchain中，模型的结构化输出分三种，一种是Pydantic Model，一种是TypedDict，还有就是JSON格式了。由于笔者目前不了解Pydantic和typeddict，因此在本文中统一使用JSON格式。JSON的内容可以根据自己的喜好来进行编排。例如我想直接返回电影《功夫熊猫》的基本介绍。
 
+```py
+json_schema = {
+    "title": "电影",
+    "description": "电影及其细节",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "电影标题"
+        },
+        "year": {
+            "type": "integer",
+            "description": "电影上映的年份"
+        },
+        "director": {
+            "type": "string",
+            "description": "电影导演名"
+        },
+        "rating": {
+            "type": "number",
+            "description": "十分制的电影打分"
+        }
+    },
+    "required": ["title", "year", "director", "rating"]
+}
+model_with_structure = model.with_structured_output(json_schema,method='json_schema')
+response = model_with_structure.invoke("介绍一下电影《功夫熊猫》")
+```
 
+输出的结果为`{'director': '马克·奥斯本', 'rating': 8.0, 'title': '功夫熊猫', 'year': 2008}`。类型为`dict`。
+
+我们可以看到，如果想用结构化输出呢，我们需要先给模型传入这个结构化输出的模板（`json_schema`）同时也可以指明输出的方式（可选），使用模型的`with_structured_output`方法，它会返回Langchain的`Runnable`实例，关于`Runnable`我们留到后面再讲。之所以不直接修改原模型，是因为这样可以利用同一个模型创建多个不同的schema版本。而Langchain中结构化输出，本质上是调用了各个模型提供商的结构化输出API，以openai举例，在GPT-4o及以后，OpenAI提供了Structured Outputs（约束解码）机制，在模型生成token的时候实时验证，如果下一个token会破坏schema的格式，直接禁止生成，官方保证输出格式100%符合。因此所有的输出都是严格结构化的。
+
+模型除了使用`invoke`方法直接调用之外，还有以下两种方式，Stream（流式）和Batch（批次），由于时间有限，本次发布的时候先不讲解这部分，等到以后更新的时候再说。
 
 ## （二）chain链的应用
 
-Agent是将Model和工具结合起来的产物，他能创建各种任务，自己决定使用什么工具并查找解决方案。一个LLM Agent会循环运行各种不同的工具来实现目标，一直运行到满足停止条件为止。
+Agent是将Model和工具结合起来的产物，他能创建各种任务，自己决定使用什么工具并查找解决方案。一个LLM Agent会循环运行各种不同的工具来实现目标，一直运行到满足停止条件为止。虽然Model本身就能够调用工具，
 
 ## 参考资料
 
@@ -138,3 +171,4 @@ Agent是将Model和工具结合起来的产物，他能创建各种任务，自�
 - [深入浅出LangChain AI Agent智能体开发教程（一）—认识LangChain&LangGraph本篇分享从L - 掘金](https://juejin.cn/post/7526993716071202851)
 - [](https://docs.langchain.com/oss/python/langchain/messages)
 - [Models - Docs by LangChain](https://docs.langchain.com/oss/python/langchain/models)
++ [AI 结构化 JSON 输出：哪些模型支持 & 定价对比（2026年2月） - DevTk.AI](https://devtk.ai/zh/blog/ai-structured-output-guide-2026/)
