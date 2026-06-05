@@ -1,0 +1,13 @@
+- links_category: Elites
+  has_thumbnail: true
+  list:
+      
+
+- links_category: Normal
+  has_thumbnail: true
+  list:
+      - name: EvanNotFound's Blog
+        link: https://ohevan.com
+        description: 用香港记者的速度更新文章
+        avatar: https://evan.beee.top/avatar.png
+        thumbnail: https://img1.imgtp.com/2023/06/19/Jegvz84P.png # has_thumbnail 为 true 时才需要
