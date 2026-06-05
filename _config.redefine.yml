@@ -176,10 +176,14 @@ home_banner:
     style: default # default, reverse, center
     # Social links
     links:
-      github:  https://github.com/Baobao0824
-      steam: https://steamcommunity.com/profiles/76561198176466618/
-      bilibili:  https://space.bilibili.com/3493078448998440
-      email:  ediamonds233@gmail.com
+      - icon: github
+        url:  https://github.com/Baobao0824
+      - icon: steam
+        url: https://steamcommunity.com/profiles/76561198176466618/
+      - icon: bilibili
+        url:  https://space.bilibili.com/3493078448998440
+      - icon: email
+        url:  ediamonds233@gmail.com
       # ...... # you can add more
     # Social links with QRcode drawers
     qrs:
@@ -213,9 +217,6 @@ navbar:
     Archives: 
       path: /archives 
       icon: fa-regular fa-archive # can be empty
-    # Status: 
-    #   path: https://status.ohevan.com/
-    #   icon: fa-regular fa-chart-bar
     About: 
       icon: fa-regular fa-user
       path: /about
@@ -252,6 +253,9 @@ home:
       Categories: 
         path: /categories 
         icon: fa-regular fa-folder # can be empty
+      Friends:
+        icon: fa-regular fa-link
+        path: /links
       # ...... # you can add more
   # Article date format
   article_date_format: auto # auto, relative, YYYY-MM-DD, YYYY-MM-DD HH:mm:ss etc.

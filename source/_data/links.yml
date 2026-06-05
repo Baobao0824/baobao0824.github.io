@@ -1,10 +1,5 @@
-- links_category: Elites
-  has_thumbnail: true
-  list:
-      
-
 - links_category: Normal
-  has_thumbnail: true
+  has_thumbnail: false
   list:
       - name: EvanNotFound's Blog
         link: https://ohevan.com
